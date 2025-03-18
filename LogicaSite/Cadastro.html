@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <style type="text/css">
+        body{
+            font-family: Arial;
+            font-size: 1.2rem;
+        }
+    </style>
+    
+    <script type="text/javascript" src="JS/usuario.js"></script>
+    <script type="text/javascript" src="JS/jquery-3.7.1.js"></script>
+</head>
+<body>
+        <input type="text"
+        id="txtnome"
+        name="nome"
+        size="35"
+        maxlength="50"
+        placeholder="Nome de Usuario"
+        required="required"
+        >
+        <br>
+        <br>
+        <input type="email"
+        id="txtemail"
+        name="email"
+        placeholder="Digite seu Email"
+        autocomplete="email"
+        size="35"
+        required="required"
+        >
+        <br>
+        <br>
+        <input type="password"
+        id="txtsenha"
+        name="senha"
+        placeholder="Crie sua Senha"
+        autocomplete="current-password"
+        size="17"
+        required="required"
+        >
+        <br><br>
+
+        <input type="button"
+        name="btncriauser"
+        value="Criar Usuario"
+        onclick="cadastro()"
+        >
+        <input type="reset"
+        name="btnlimpar"
+        value="Limpar"
+        >
+</body>
+</html>

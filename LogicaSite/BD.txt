@@ -1,0 +1,33 @@
+create database tccroupa;
+go
+use tccroupa;
+go
+create table usuario 
+  (  
+   nome varchar(50),
+   email varchar(50),
+   senha varchar(12),
+  );
+
+  CREATE TABLE Produto (
+
+	Id_Produto int primary key identity,
+	Nome varchar(40),
+	Tipo varchar(40),
+	Quantidade int,
+	Descricao varchar(200),
+	Valor decimal(10,2),
+	Peso varchar(20)
+	)
+	INSERT INTO Produto (Nome, Tipo, Quantidade, Descricao, Valor, Peso)
+VALUES
+('Produto 1', 'Eletrônico', 10, 'Descrição do Produto 1', 299.99, '1.5kg'),
+('Produto 2', 'Alimento', 50, 'Descrição do Produto 2', 19.90, '500g'),
+('Produto 3', 'Vestuário', 30, 'Descrição do Produto 3', 99.90, '1kg'),
+('Produto 4', 'Higiene', 100, 'Descrição do Produto 4', 9.90, '300g'),
+('Produto 5', 'Ferramenta', 15, 'Descrição do Produto 5', 159.90, '2kg'),
+('Produto 6', 'Decoração', 25, 'Descrição do Produto 6', 49.90, '800g'),
+('Produto 7', 'Móvel', 5, 'Descrição do Produto 7', 799.90, '20kg'),
+('Produto 8', 'Brinquedo', 40, 'Descrição do Produto 8', 29.90, '1kg'),
+('Produto 9', 'Esporte', 20, 'Descrição do Produto 9', 199.90, '3kg'),
+('Produto 10', 'Beleza', 35, 'Descrição do Produto 10', 89.90, '500g');
