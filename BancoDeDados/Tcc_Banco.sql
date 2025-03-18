@@ -1,3 +1,4 @@
+
 USE MASTER
 GO 
 CREATE DATABASE Loja_Ecomerce
@@ -6,12 +7,12 @@ USE Loja_Ecomerce
 
 CREATE TABLE Cliente (
     Id_Cliente int primary key identity ,
-    Usuario varchar(20),
+    Usuario varchar(40),
 	Nome varchar(40),
 	Senha varchar(30),
 	Email varchar(50),
-	Telefone int,
-	Cpf varchar(11),
+	Telefone varchar(30),
+	Cpf varchar(20),
 	Img_Perfil varchar(40)
 )
 GO
@@ -179,3 +180,5 @@ Create Table Oficina_Lote(
 )
 
 GO
+
+select * from Cliente

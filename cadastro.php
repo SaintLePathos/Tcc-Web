@@ -2,7 +2,7 @@
 
 require 'conexao.php';
 
-$pdo=conectar();
+$pdo = conectar();
 
 $tabela = "Cliente";
 
@@ -16,7 +16,7 @@ try{
     $novotelefone = $_POST["telefone"];
     $novocpf = $_POST["cpf"];
     
-    $sql=$pdo->prepare("INSERT INTO".$tabela."(usuario, nome , email, senha, telefone, cpf)"."VALUES(:usuario,:nome,:email,:senha,:telefone,:cpf);");
+    $sql=$pdo->prepare("INSERT INTO ".$tabela." (usuario, nome , email, senha, telefone, cpf) VALUES(:usuario,:nome,:email,:senha,:telefone,:cpf);");
 
     $sql->bindValue(":usuario",$novousuario);
     $sql->bindValue(":nome",$novonome);
@@ -26,7 +26,8 @@ try{
     $sql->bindValue(":cpf",$novocpf);
 
     $sql->execute();
-    echo "Sucesso na Inclusão";
+    echo "Cadastro com sucesso";
+    sleep(5);
     header('Location: index.html');
     die;
 
