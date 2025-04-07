@@ -1,9 +1,23 @@
 
 USE MASTER
 GO 
+
+IF EXISTS(SELECT 1 FROM SYSDATABASES WHERE NAME = 'Loja_Ecomerce')
+	DROP DATABASE Loja_Ecomerce
+GO
+
 CREATE DATABASE Loja_Ecomerce
 GO
 USE Loja_Ecomerce
+
+GO
+
+--Configurando data como dia/mês/ano
+
+SET DATEFORMAT DMY;
+GO
+
+--Cliente
 
 CREATE TABLE Cliente (
     Id_Cliente int primary key identity ,
@@ -15,7 +29,12 @@ CREATE TABLE Cliente (
 	Cpf varchar(20),
 	Img_Perfil varchar(40)
 )
+
+CREATE INDEX xCliente ON Cliente(Id_Cliente);
+
 GO
+
+-- Endereco Cliente
 
 CREATE TABLE Endereco_Cliente
 (
@@ -30,7 +49,13 @@ CREATE TABLE Endereco_Cliente
 
 	Foreign key (Id_Cliente) References Cliente(Id_Cliente)
 )
+
+CREATE INDEX xEndereco_Cliente ON Endereco_Cliente(Id_Endereco_Cliente);
+
 GO
+
+--Pedido
+
 CREATE TABLE Pedido(
 	
 	Id_Pedido int primary key identity,
@@ -46,25 +71,42 @@ CREATE TABLE Pedido(
 	Foreign Key (Id_Cliente) References Cliente(Id_Cliente)
 )
 
+CREATE INDEX xPedido ON Pedido(Id_Pedido);
+
 GO
 
+--Carrinho
 
 CREATE TABLE Carrinho (
 	Id_Carrinho int primary key identity,
 	Id_Cliente int,
+	Quantidade int,
 
 
 	Foreign Key (Id_Cliente) References Cliente(Id_Cliente) 
 )
+
+
+CREATE INDEX IDX_Carrinho_IdCliente ON Carrinho (Id_Carrinho);
+
 GO
  
+--Modelo
+
 CREATE TABLE Modelo(
 	Id_Modelo int primary key identity,
 	Referencia Varchar(40),
 	Tipo Varchar (30),
 	Tamanho varchar (8),
 )
+
+CREATE INDEX IDX_Modelo ON Modelo (Id_Modelo);
+
+
 GO
+
+-- Lote
+
 CREATE TABLE Lote (
 
 	Id_Lote int primary key identity,
@@ -75,7 +117,13 @@ CREATE TABLE Lote (
 	
 	Foreign Key (Id_Modelo) References Modelo (Id_Modelo)
 )
+
+
+CREATE INDEX xLote ON Lote (Id_Lote);
+
 GO
+
+--Tecido
 
 CREATE TABLE Tecido (
 	
@@ -93,7 +141,11 @@ CREATE TABLE Tecido (
 
 )
 
+CREATE INDEX xTecido ON Tecido (Id_Tecido);
+
 GO
+
+--Produto
 
 CREATE TABLE Produto (
 
@@ -112,7 +164,12 @@ CREATE TABLE Produto (
 
 )
 
+CREATE INDEX xProduto ON Produto (Id_Produto);
+
+
 GO
+
+--Carrinho_Produto
 
 CREATE TABLE Carrinho_Produto(
 	Id_Carrinho int,
@@ -122,7 +179,12 @@ CREATE TABLE Carrinho_Produto(
 	
 )
 
+
+CREATE INDEX xCarrinho_Produto ON Carrinho_Produto (Id_Carrinho, Id_Produto);
+
 GO
+
+--Produto_Pedido
 
 CREATE TABLE Produto_Pedido (
 	
@@ -134,7 +196,14 @@ CREATE TABLE Produto_Pedido (
 	Foreign Key (Id_Pedido) References Pedido (Id_Pedido),
 	Foreign Key (Id_Produto) References Produto (Id_Produto)
 )
+
+CREATE INDEX xProduto_Pedido ON Produto_Pedido (Id_Pedido, Id_Produto);
+
 GO
+
+--Produto_Lote
+
+
 CREATE TABLE Produto_Lote(
 
 	Id_Produto int,
@@ -146,18 +215,31 @@ CREATE TABLE Produto_Lote(
 	Foreign Key (Id_Lote) References Lote(Id_Lote)
 
 )
+
+CREATE INDEX xProduto_Lote ON Produto_Lote (Id_Lote, Id_Produto);
+
 GO
+
+--Endereco_Oficina
+
 CREATE TABLE Endereco_Oficina(
- Id_Endereco_Oficina int primary key identity,
- Estado varchar(2),
- Municipio varchar(40),
- Rua varchar(50),
- Numero varchar(6),
- Cep varchar(10),
- Referencia varchar (200)
+ 	
+	Id_Endereco_Oficina int primary key identity,
+ 	Estado varchar(2),
+ 	Municipio varchar(40),
+ 	Rua varchar(50),
+ 	Numero varchar(6),
+ 	Cep varchar(10),
+	 Referencia varchar (200)
 
 )
+
+CREATE INDEX xEndereco_Oficina ON Endereco_Oficina (Id_Endereco_Oficina);
+
 GO
+
+--Oficina
+
 CREATE TABLE Oficina (
 	Id_Oficina int primary key identity,
 	Id_Endereco_Oficina int,
@@ -167,7 +249,13 @@ CREATE TABLE Oficina (
 	Foreign Key (Id_Endereco_Oficina) References Endereco_Oficina(Id_Endereco_Oficina)
 
 )
+
+CREATE INDEX xOficina ON Oficina (Id_Oficina);
+
 GO
+
+--Oficina_Lote
+
 Create Table Oficina_Lote(
 	Id_Oficina int,
 	Id_Lote int,
@@ -178,6 +266,8 @@ Create Table Oficina_Lote(
 	Quantidade_Saida int
 
 )
+
+CREATE INDEX xOficina_Lote ON Oficina_Lote (Id_Oficina, Id_Lote);
 
 GO
 

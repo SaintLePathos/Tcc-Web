@@ -13,7 +13,7 @@ if($_POST){
         {
             $novo_email = $_POST["email"];
             $nova_senha = $_POST["senha"];
-            $sql = $pdo->prepare("SELECT Email,Senha FROM ".$tabela." WHERE Email = :email AND Senha = :senha");
+            $sql = $pdo->prepare("SELECT Email,Senha FROM ". $tabela." WHERE Email = :email AND Senha = :senha");
 
             $sql->bindValue(":email",$novo_email);
             $sql->bindValue(":senha",$nova_senha);
@@ -23,8 +23,9 @@ if($_POST){
             $resultado = $sql->fetch(PDO::FETCH_ASSOC);
             
             if($resultado){
-                
+                $_SESSION['email'] = $novo_email;
                 echo "Usuario encontrado";
+                sleep(5);
                 header('location: usuario-info.html');
                 die;
             }else{
