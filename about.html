@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/colors/color-1.css">
 
-    <title>Blog's</title>
+    <title>Responsive e-commerce website - Crypticalcoder</title>
 </head>
 <body>
     <!--=============== HEADER ===============-->
@@ -34,16 +34,16 @@
                         <a href="shop.html" class="nav__link">Shop</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="about.html" class="nav__link">About</a>
+                        <a href="about.html" class="nav__link active-link">About</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="blog.html" class="nav__link active-link">Blog</a>
+                        <a href="blog.html" class="nav__link">Blog</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="faq.html" class="nav__link">Faq's</a>
+                        <a href="faq.html" class="nav__link ">Faq's</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="contact.html" class="nav__link">Contact</a>
+                        <a href="contact.html" class="nav__link ">Contact</a>
                      </li> 
                 </ul>
                 <div class="nav__close" id="nav-close">
@@ -191,76 +191,43 @@
 
     <!--=============== MAIN ===============-->
     <main class="main">
-        <!--=============== BLOG ===============-->
-        <section class="blog section container">
-            <h2 class="breadcrumb__title">Blog Page</h2>
-            <h3 class="breadcrumb__subtitle">Home > <span>Blog</span></h3>
+        <!--=============== ABOUT ===============-->
+        <section class="about section container">
+            <h2 class="breadcrumb__title">About Page</h2>
+            <h3 class="breadcrumb__subtitle">Home > <span>About us</span></h3>
+            
+            <div class="about__container grid">
+               <img src="assets/img/about-img.jpg" alt="" class="about__img"> 
 
-            <div class="blog__container grid">
-                <div class="blog__post grid">
-                    <img src="assets/img/blog-1.webp" alt="" class="blog__img">
-                    <div class="blog__info">
-                        <p class="blog__details">
-                            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua
-                        </p>
-                        <h3 class="blog__title">From Now We Are Certified Web...</h3>
-                        <p class="blog__date"> By Admin / Jan 12,2040 / </p>
-                        <div class="read__more">
-                            <a href="#" class="button--link button--flex">Read More <i
-                             class="bx bx-right-arrow-alt button__icon"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="blog__post grid">
-                    <img src="assets/img/blog-2.webp" alt="" class="blog__img">
-                    <div class="blog__info">
-                        <p class="blog__details">
-                            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua
-                        </p>
-                        <h3 class="blog__title">From Now We Are Certified Web...</h3>
-                        <p class="blog__date"> By Admin / Jan 12,2040 / </p>
-                            <div class="read__more">
-                             <a href="#" class="button--link button--flex">Read More <i
-                              class="bx bx-right-arrow-alt button__icon"></i></a>
-                            </div>
-                    </div>
-                </div>
-
-                <div class="blog__post grid">
-                    <img src="assets/img/blog-1.webp" alt="" class="blog__img">
-                    <div class="blog__info">
-                        <p class="blog__details">
-                            Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua
-                        </p>
-                        <h3 class="blog__title">From Now We Are Certified Web...</h3>
-                        <p class="blog__date"> By Admin / Jan 12,2040 / </p>
-                        <div class="read__more">
-                            <a href="#" class="button--link button--flex">Read More <i
-                             class="bx bx-right-arrow-alt button__icon"></i></a>
-                           </div>
+                <div class="about__data">
+                    <h2 class="section__title about__title">
+                        Who we really are & <br> why choose us
+                    </h2>
+                    <p class="about__description">
+                        We have over 4000+ unbiased reviews and our customers trust our products and delivery service every time
+                    </p>
+                    <div class="about__details">
+                    <p class="about__details-description">
+                        <i class="bx bxs-check-square about__details-icon"></i>
+                        We always deliver on time
+                    </p>
+                    <p class="about__details-description">
+                        <i class="bx bxs-check-square about__details-icon"></i>
+                        We give you guides to protect and care for your products
+                    </p>
+                    <p class="about__details-description">
+                        <i class="bx bxs-check-square about__details-icon"></i>
+                       100% money back guaranted
+                    </p>
                     </div>
                 </div>
             </div>
-
-            <div class="pagination">
-                <i class="bx bx-chevron-left pagination__icon"></i>
-
-                <span class="current">1</span>
-                <span>2</span>
-                <span>3</span>
-                <span>&middot; &middot; &middot;</span>
-                <span>9</span>
-                <i class="bx bx-chevron-right pagination__icon"></i>
-            </div>
-
         </section>
     </main>
 
     <!--=============== FOOTER ===============-->
     <footer class="footer section">
         <div class="footer__container container grid">
-          
             <!-- FOOTER CONTENT 1 -->
             <div class="footer__content">
                 <a href="#" class="footer__logo">
@@ -296,7 +263,6 @@
 
                 </ul>
             </div>
-            
              <!-- FOOTER CONTENT 4 -->
              <div class="footer__content">
                 <h3 class="footer__title">Our Comapany</h3>
