@@ -1,0 +1,58 @@
+-- Criando variáveis para armazenar os IDs de fornecedores
+DECLARE @Fornecedor1 INT, @Fornecedor2 INT, @Fornecedor3 INT;
+
+-- Inserindo fornecedores e capturando os IDs gerados automaticamente
+INSERT INTO Fornecedor (CNPJ_Fornecedor, Nome_Fornecedor, Email_Fornecedor, Telefone_Fornecedor)
+VALUES ('12345678901234', 'Fornecedor A', 'contato@fornecedora.com', '11987654321');
+SET @Fornecedor1 = SCOPE_IDENTITY();
+
+INSERT INTO Fornecedor (CNPJ_Fornecedor, Nome_Fornecedor, Email_Fornecedor, Telefone_Fornecedor)
+VALUES ('56789012345678', 'Fornecedor B', 'contato@fornecedorb.com', '11987654322');
+SET @Fornecedor2 = SCOPE_IDENTITY();
+
+INSERT INTO Fornecedor (CNPJ_Fornecedor, Nome_Fornecedor, Email_Fornecedor, Telefone_Fornecedor)
+VALUES ('98765432109876', 'Fornecedor C', 'contato@fornecedorc.com', '11987654323');
+SET @Fornecedor3 = SCOPE_IDENTITY();
+
+-- Inserindo produtos garantindo que os IDs corretos sejam usados
+INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Img_Produto, Descricao_Produto, Valor_Produto, Peso_Produto, Desconto_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto)
+VALUES
+(@Fornecedor1, 'Camiseta Branca', 'img1.jpg', 'Camiseta de algodão branca', 39.90, 0.3, 10, 'M', 50, 'Algodão', 'Branca'),
+(@Fornecedor1, 'Camiseta Preta', 'img2.jpg', 'Camiseta de algodão preta', 39.90, 0.3, 10, 'G', 40, 'Algodão', 'Preta'),
+(@Fornecedor2, 'Calça Jeans', 'img3.jpg', 'Calça jeans azul', 99.90, 1.2, 15, '42', 30, 'Jeans', 'Azul'),
+(@Fornecedor2, 'Jaqueta Couro', 'img4.jpg', 'Jaqueta de couro sintético', 199.90, 1.5, 20, 'L', 25, 'Couro Sintético', 'Preto');
+
+select*from Fornecedor
+
+SELECT * FROM Produto
+____________________________________________________________________________
+
+INSERT INTO Fornecedor (CNPJ_Fornecedor, Nome_Fornecedor, Email_Fornecedor, Telefone_Fornecedor) VALUES
+('12345678901234', 'Fornecedor A', 'contato@fornecedora.com', '11987654321'),
+('56789012345678', 'Fornecedor B', 'contato@fornecedorb.com', '11987654322'),
+('98765432109876', 'Fornecedor C', 'contato@fornecedorc.com', '11987654323');
+
+
+-- Inserindo produtos agora que os fornecedores existem
+INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Img_Produto, Descricao_Produto, Valor_Produto, Peso_Produto, Desconto_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto) VALUES
+(1, 'Camiseta Branca', 'img1.jpg', 'Camiseta de algodão branca', 39.90, 0.3, 10, 'M', 50, 'Algodão', 'Branca'),
+(1, 'Camiseta Preta', 'img2.jpg', 'Camiseta de algodão preta', 39.90, 0.3, 10, 'G', 40, 'Algodão', 'Preta'),
+(2, 'Calça Jeans', 'img3.jpg', 'Calça jeans azul', 99.90, 1.2, 15, '42', 30, 'Jeans', 'Azul'),
+(2, 'Jaqueta Couro', 'img4.jpg', 'Jaqueta de couro sintético', 199.90, 1.5, 20, 'L', 25, 'Couro Sintético', 'Preto'),
+(3, 'Tênis Esportivo', 'img5.jpg', 'Tênis confortável para corrida', 149.90, 0.8, 5, '42', 60, 'Sintético', 'Vermelho'),
+(3, 'Mochila Casual', 'img6.jpg', 'Mochila para uso diário', 79.90, 0.5, 12, 'Único', 45, 'Poliéster', 'Preto'),
+(1, 'Boné Estiloso', 'img7.jpg', 'Boné de algodão', 49.90, 0.2, 8, 'Único', 35, 'Algodão', 'Azul'),
+(2, 'Óculos de Sol', 'img8.jpg', 'Óculos com proteção UV', 129.90, 0.3, 10, 'Único', 20, 'Plástico', 'Preto'),
+(3, 'Relógio Elegante', 'img9.jpg', 'Relógio analógico de aço', 399.90, 0.4, 25, 'Único', 15, 'Aço', 'Prata'),
+(1, 'Carteira de Couro', 'img10.jpg', 'Carteira de couro legítimo', 89.90, 0.3, 12, 'Único', 50, 'Couro', 'Marrom'),
+(2, 'Chapéu Panamá', 'img11.jpg', 'Chapéu estiloso para verão', 59.90, 0.2, 5, 'Único', 22, 'Palha', 'Bege'),
+(3, 'Meia Confortável', 'img12.jpg', 'Meia de algodão', 15.90, 0.1, 3, 'Único', 100, 'Algodão', 'Cinza'),
+(1, 'Casaco de Lã', 'img13.jpg', 'Casaco quente para inverno', 229.90, 1.3, 18, 'M', 30, 'Lã', 'Cinza'),
+(2, 'Calça Moletom', 'img14.jpg', 'Calça confortável de moletom', 79.90, 1.1, 12, 'G', 45, 'Moletom', 'Cinza'),
+(3, 'Cinto de Couro', 'img15.jpg', 'Cinto elegante de couro', 59.90, 0.3, 10, 'Único', 40, 'Couro', 'Preto'),
+(1, 'Blusa Feminina', 'img16.jpg', 'Blusa leve e estilosa', 49.90, 0.4, 8, 'P', 35, 'Algodão', 'Rosa'),
+(2, 'Saia Jeans', 'img17.jpg', 'Saia curta de jeans', 89.90, 0.7, 15, '38', 25, 'Jeans', 'Azul'),
+(3, 'Sandália Casual', 'img18.jpg', 'Sandália confortável para passeio', 79.90, 0.5, 10, '39', 50, 'Couro Sintético', 'Marrom'),
+(1, 'Vestido Floral', 'img19.jpg', 'Vestido estampado', 119.90, 0.6, 20, 'M', 40, 'Poliéster', 'Vermelho'),
+(2, 'Chinelo de Borracha', 'img20.jpg', 'Chinelo simples', 29.90, 0.3, 5, '42', 80, 'Borracha', 'Preto');
+
