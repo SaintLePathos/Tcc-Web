@@ -3,9 +3,8 @@
 if($_POST){
 
     session_start();
-    require "conexao.php";
+    include(__DIR__."/assets/php/cnxBD.php");
 
-    $pdo= conectar();
     $tabela = "Cliente";
     
     try{
@@ -13,7 +12,7 @@ if($_POST){
         {
             $novo_email = $_POST["email"];
             $nova_senha = $_POST["senha"];
-            $sql = $pdo->prepare("SELECT Email,Senha FROM ". $tabela." WHERE Email = :email AND Senha = :senha");
+            $sql = $conectar->prepare("SELECT Email,Senha FROM ". $tabela." WHERE Email = :email AND Senha = :senha");
 
             $sql->bindValue(":email",$novo_email);
             $sql->bindValue(":senha",$nova_senha);

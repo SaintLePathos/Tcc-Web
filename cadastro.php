@@ -1,8 +1,6 @@
 <?php
 
-require 'conexao.php';
-
-$pdo = conectar();
+include(__DIR__."/assets/php/cnxBD.php");
 
 $tabela = "Cliente";
 
@@ -16,7 +14,7 @@ try{
     $novotelefone = $_POST["telefone"];
     $novocpf = $_POST["cpf"];
     
-    $sql=$pdo->prepare("INSERT INTO ".$tabela." (usuario, nome , email, senha, telefone, cpf) VALUES(:usuario,:nome,:email,:senha,:telefone,:cpf);");
+    $sql=$conectar->prepare("INSERT INTO ".$tabela." (usuario, nome , email, senha, telefone, cpf) VALUES(:usuario,:nome,:email,:senha,:telefone,:cpf);");
 
     $sql->bindValue(":usuario",$novousuario);
     $sql->bindValue(":nome",$novonome);

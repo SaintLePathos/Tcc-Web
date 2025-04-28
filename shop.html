@@ -14,10 +14,13 @@
     <!--=============== CSS ===============-->
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/colors/color-1.css">
+    
+    <script type="text/javascript" src="assets/js/produto.js"></script>
+    <script type="text/javascript" src="assets/js/jquery-3.7.1.js"></script>
 
     <title>Shop</title>
 </head>
-<body>
+<body onload="Carregamento()">
     <!--=============== HEADER ===============-->
     <header class="header" id="header">
         <nav class="nav container">
@@ -199,6 +202,52 @@
                 <div class="sidebar">
                     <h3 class="filter__title">Select Filters</h3>
                     <div class="filter__content">
+                        <h3 class="filter__subtitle">Ordenar Por</h3>
+                        
+                        <div class="filter">
+                            <input type="radio" name="ordem" id="rdorelevante" value="relevante" onclick="CarregaProdutos()" checked>
+                            <label for="rdorelevante"><p>Relevancia</p></label> <span></span>
+                        </div>
+                        <div class="filter">
+                            <input type="radio" name="ordem" id="rdonovidade" value="novidade" onclick="CarregaProdutos()">
+                            <label for="rdonovidade"><p>Novidades</p></label> <span></span>
+                        </div>
+                        <div class="filter">
+                            <input type="radio" name="ordem" id="rdovendido" value="vendido" onclick="CarregaProdutos()">
+                            <label for="rdovendido"><p>Vendidos</p></label> <span></span>
+                        </div>
+                        <div class="filter">
+                            <input type="radio" name="ordem" id="rdodesconto" value="desconto" onclick="CarregaProdutos()">
+                            <label for="rdodesconto"><p>Desconto</p></label> <span></span>
+                        </div>
+                        <div class="filter">
+                            <input type="radio" name="ordem" id="rdomenorpreco" value="-preco" onclick="CarregaProdutos()">
+                            <label for="rdomenorpreco"><p>Menores Preços</p></label> <span></span>
+                        </div>
+                        <div class="filter">
+                            <input type="radio" name="ordem" id="rdomaiorpreco" value="+preco" onclick="CarregaProdutos()">
+                            <label for="rdomaiorpreco"><p>Maiores Preços</p></label> <span></span>
+                        </div>
+                        <div class="filter">
+                            <input type="radio" name="ordem" id="rdoaz" value="az" onclick="CarregaProdutos()">
+                            <label for="rdoaz"><p>A - Z</p></label> <span></span>
+                        </div>
+                        <div class="filter">
+                            <input type="radio" name="ordem" id="rdoza" value="za" onclick="CarregaProdutos()">
+                            <label for="rdoza"><p>Z - A</p></label> <span></span>
+                        </div>
+
+                    </div>
+                    <div id="divFiltroTamanho" class="filter__content">
+
+                    </div>
+                    <div id="divFiltroCor" class="filter__content">
+
+                    </div>
+                    <div id="divFiltroTecido" class="filter__content">
+
+                    </div>
+                    <!--<div class="filter__content">
                         <h3 class="filter__subtitle">Condition</h3>
 
                         <div class="filter">
@@ -284,10 +333,10 @@
                             <input type="checkbox" name="" id="">
                             <p>Acessories</p> <span>(9)</span>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
 
-                <div class="shop__items grid">
+                <div id="divProdutos" class="shop__items grid">
                     <div class="shop__content">
                         <div class="shop__tag">New</div>
                         <img src="assets/img/product-1.png" alt="" class="shop__img">
@@ -393,7 +442,7 @@
                 </div>
             </div>
 
-            <div class="pagination">
+            <div id="divPaginaProduto" class="pagination">
                 <i class="bx bx-chevron-left pagination__icon"></i>
 
                 <span class="current">1</span>
