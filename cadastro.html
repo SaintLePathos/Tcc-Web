@@ -4,77 +4,61 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style_cadastro.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
-    <script type="text/javascript" src="assets/js/jquery-3.7.1.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.js"></script>
-    <script type="text/javascript" src="assets/js/main.js"></script>
-    
-    
-    
-    <title>Sing up</title>
+
+    <!--=============== BOXICONS ===============-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!--=============== SWIPER CSS ===============-->
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/colors/color-1.css">
+
+    <title>Cadastro</title>
 </head>
 <body>
+    <div class="signup" >
+     
+        <h2 class="signup__title-center">Cadastro</h2>
+        <form action="cadastro.php" class="signup__form" method="post">
 
-    <div id="SingUp">
+            <div class="sign__container">
+                 <div class="signup__content">
+                    <label for="" class="signup__label">Usuario</label>
+                    <input type="text" name="Usuario" id="Usuario" class="sign__input">
+                </div>
+                 <div class="signup__content">
+                    <label for="" class="signup__label">Nome</label>
+                    <input type="text" name="Usuario" id="Nome" class="sign__input">
+                </div>
+                <div class="signup__content">
+                    <label for="" class="signup__label">Email</label>
+                    <input type="email" name="Email" id="Email" class="sign__input">
+                </div>
+                <div class="signup__content">
+                    <label for="" class="signup__label">Senha</label>
+                    <input type="text" name="Senha" id="Senha" class="sign__input">
+                </div>
+                <div class="signup__content">
+                    <label for="" class="signup__label">Confirmação Senha</label>
+                    <input type="text" name="Confirmação_senha" id="Confirmação_senha" class="sign__input">
+                </div>
+                <div class="signup__content">
+                    <label for="" class="signup__label">Celular</label>
+                    <input type="tel" name="Usuario" id="Celular" class="sign__input">
+                </div>
+                <div class="signup__content">
+                    <label for="" class="signup__label">CPF</label>
+                    <input type="text" name="Usuario" id="CPF" class="sign__input">
+                </div>
     
-    <div class="caixa">
+            </div>
+            <button type="submit" class="button">cadastra</button>
+        </form>
 
-        <h1>Cadastro</h1>
-
-    <form action="cadastro.php" method="post" autocomplete="on">
-        
-        <div class="usuario">
-        <label for="usuario">Usuario</label>
-        <input type="text" id="usuario" name="usuario" placeholder="Crie o nome do seu usuario" required>
-        </div>
-
-        <div class="nome">
-        <label for="nome">Nome</label>
-        <input type="text" id="nome" name="nome" placeholder="Digite seu nome" required>
-        </div>
-
-        <div class="email">
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Digite seu email" required>
-        </div>
-        
-        <div class="telefone">
-            <label for="telefone">Telefone</label>
-            <input type="tel" id="telefone" name="telefone" placeholder="Digite seu número de telefone" required>
-        </div>
-    
-        <div class="cpf">
-            <label for="cpf">CPF</label>
-            <input type="text" id="cpf" name="cpf" placeholder="Digite seu cpf" required>
-        </div>  
-
-        <div class="senha">
-        <label for="senha">Senha</label>
-        <input type="password" id="senha" name="senha" placeholder="Crie a senha" required>
-        </div>
-
-        <div class="confirma_senha">
-        <label for="Confirma_senha">Confirma senha</label>
-        <input type="password" id="Confirma_senha" name="Confirma_senha" placeholder="Confirme a senha" required>
-        </div>
-
-       
-         <div class="cadastrar">
-        <button type="submit">Cadastrar</button>
-         </div>
-
-         <div class="apagar">
-        <button type="reset">Apagar</button>
-        </div>
-
-    </form>
-    <p>Já possui conta? <a href="login.html">Faça login</a></p>
     </div>
- 
-</div>
-    
+   
 </body>
+
 </html>

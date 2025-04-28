@@ -842,7 +842,7 @@ input {
 
 .about__img {
     width: 380px;
-    justify-content: centet;
+    justify-content: center;
 }
 
 .about__title {
@@ -911,7 +911,7 @@ input {
 .read__more {
     text-align: right;
 }
-/*=============== CART PAGE ===============*/
+
 
 
 /*=============== FAQ PAGE ===============*/
@@ -1177,6 +1177,39 @@ input {
 ::-webkit-scrollbar-thumb {
     background: var(--scroll-thumb-color);
     border-radius: .5rem;
+}
+/*=============== SING UP ===============*/
+
+.signup {
+    padding: 10px;
+  
+}
+
+.signup__title-center {
+    
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+
+.sign__container {
+    display: grid;
+    grid-template-columns: auto auto;
+    
+}
+
+.signup__content {
+    display: flex;
+    justify-content: center;
+}
+
+.signup__label {
+
+}
+
+.sign__input {
+    position: flex;
+    justify-content: center;
 }
 
 /*=============== LOGIN ===============*/
