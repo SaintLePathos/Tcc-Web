@@ -33,7 +33,7 @@ function CarregaFiltros(fltDeclarado){
             
         },
         error: function(cod,textStatus,msg){//em caso de erro executara este comando
-            alert("Houve um erro na comunicação com servidor \n"+cod+"\n"+textStatus+"\n"+msg);
+            console.log("Houve um erro na comunicação com servidor \n"+cod+"\n"+textStatus+"\n"+msg);
         }
     });
 }
@@ -46,7 +46,7 @@ function VerificaRdo(){
             break;
         }
     }
-    console.log(ordemSelecionada);
+    //console.log(ordemSelecionada);
 }
 
 let filtroTamanho = [];
@@ -62,7 +62,7 @@ function VerificaCkb() {
     filtroCor = getCheckedValues("ckbCor_name");
     filtroTecido = getCheckedValues("ckbTecido_name");
 
-    console.log(filtroTamanho, filtroCor, filtroTecido);
+    //console.log(filtroTamanho, filtroCor, filtroTecido);
 }
 
 let numpagina = 1;
@@ -71,7 +71,6 @@ let paginaexecucao = false;
 function CarregaProdutos(){
     VerificaRdo();
     VerificaCkb();
-    //alert(ordemSelecionada);
     $.ajax({
         url  : 'assets/php/produto.php',
         type : 'POST',
@@ -83,7 +82,7 @@ function CarregaProdutos(){
         },
         dataType: 'json',
         success: function(retorno){
-            console.log(retorno);
+            //console.log(retorno);
             let shopItemsContainer = document.getElementById('divProdutos');
             shopItemsContainer.innerHTML = "";
             let numlinhas = 6;
@@ -99,6 +98,12 @@ function CarregaProdutos(){
                 }
                 const divProduto = document.createElement('div');
                 divProduto.classList.add('shop__content');
+                divProduto.onclick = function() {
+                    enviarID(retorno[i].id); // Passando uma string como parâmetro
+                };;
+                let descontado = retorno[i].desconto / 100;
+                let valordescontado = retorno[i].valor * descontado;
+                let valorfinal = retorno[i].valor - valordescontado;
                 divProduto.innerHTML = `
                     <div class="shop__tag">${estoque}</div>
                     <img  src="assets/img/${retorno[i].img}" alt="" class="shop__img">
@@ -106,8 +111,8 @@ function CarregaProdutos(){
                     <span class="shop__subtitle">Tamanho ${retorno[i].tamanho}, ${retorno[i].tecido}, ${retorno[i].cor}</span>
 
                     <div class="shop__prices">
-                        <span class="shop__price">${retorno[i].valor}</span>
-                        <span class="shop__discounts">${retorno[i].desconto}</span>
+                        <span class="shop__price">${valorfinal.toFixed(2)}</span>
+                        <span class="shop__discounts">${retorno[i].valor}</span>
                     </div>
 
                     <a href="#" class="button shop__button">
@@ -124,7 +129,6 @@ function CarregaProdutos(){
         },
         error: function(xhr, textStatus, errorThrown) {
             console.error("Erro na requisição AJAX:", xhr, textStatus, errorThrown);
-            alert("Erro na comunicação com o servidor. Tente novamente.");
         }
         
     });

@@ -66,11 +66,11 @@
         $sql = $conectar->prepare($comandoSQL);
         $sql->execute();
         $resul = $sql->fetchAll(PDO::FETCH_ASSOC);
-        $estoquesit = "";
         if (count($resul) >0){
             foreach($resul as $indice => $conteudo){
 
                 $retorno[$indice] = [
+                    "id" => $conteudo["Id_Produto"],
                     "nome" => $conteudo["Nome_Produto"],
                     "img" => $conteudo["Img_Produto"],
                     "descricao" => $conteudo["Descricao_Produto"],
