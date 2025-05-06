@@ -11,8 +11,12 @@ try{
     $novonome = $_POST["nome"];
     $novoemail = $_POST["email"]; 
     $novasenha = $_POST["senha"];
+    $confirmaSenha = $_POST["confirma_senha"];
     $novotelefone = $_POST["telefone"];
     $novocpf = $_POST["cpf"];
+    if ($novasenha ==  $confirmaSenha){
+        $novasenha = password_hash($novasenha,PASSWORD_DEFAULT);
+    }
     
     $sql=$conectar->prepare("INSERT INTO ".$tabela." (usuario, nome , email, senha, telefone, cpf) VALUES(:usuario,:nome,:email,:senha,:telefone,:cpf);");
 

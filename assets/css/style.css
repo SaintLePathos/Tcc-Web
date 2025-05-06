@@ -751,6 +751,8 @@ input {
     border-radius: .5rem;
     position: relative;
     cursor: pointer;
+    margin-bottom: 10px;
+   
 }
 
 .details__img-tag {

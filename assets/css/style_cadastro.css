@@ -1,146 +1,131 @@
-body{
-    font-family: 'Roboto' , sans-serif;
-    background-color: #0f0c25;
-    color:#fff;
-
-}
-a{
-    text-decoration: none;
-    color: aquamarine;
-}
-
-#SingUp{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #f9f9ff;
+    color: #333;
+  }
+  
+  header {
     display: flex;
-    flex-direction: row;
-}
-
-.usuario input{
-    border-radius: 15px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+  }
+  
+  nav ul {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+  }
+  
+  nav ul li {
+    cursor: pointer;
+    font-weight: 500;
+  }
+  
+  .icons span {
+    margin-left: 1rem;
+    font-size: 1.2rem;
+    cursor: pointer;
+  }
+  
+  .user-edit {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 3rem;
+    padding: 4rem 2rem;
+  }
+  
+  .user-photo img {
+    width: 200px;
+    border-radius: 50%;
+    border: 4px solid #ccc;
+  }
+  
+  .user-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .user-form h1 {
+    margin-bottom: 1.5rem;
+  }
+  
+  .user-form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+  
+  .user-form input {
+    width: 100%;
+    padding: 0.7rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  .form-actions {
+    margin-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  
+  button.save {
+    background-color: black;
+    color: white;
     border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: #1e1c2e;
-    color: #b6b6b6;
-    margin-bottom: 15px;
-    margin-left: 1px;
-}
-
-.nome input{
-    border-radius: 15px;
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button.cancel {
+    background-color: #eee;
     border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: #1e1c2e;
-    color: #b6b6b6;
-    margin-bottom: 15px;
-    margin-left: 10px;
-}
-
-
-.email input{
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: #1e1c2e;
-    color: #b6b6b6;
-    margin-bottom: 15px;
-    margin-left: 13px;
-    
-}
-
-.senha input{
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: #1e1c2e;
-    color: #b6b6b6;
-    margin-bottom: 15px;
-    margin-left:9px;
-}
-
-.confirma_senha input{
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: #1e1c2e;
-    color: #b6b6b6;
-    margin-bottom: 15px;
-    margin-right: 60px;
-}
-
-.telefone input{
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: #1e1c2e;
-    color: #b6b6b6;
-    margin-bottom: 15px;
-    margin-right:8px ;
-    
-}
-
-.cpf input{
-    border-radius: 15px;
-    border: none;
-    width: 250px;
-    height: 40px;
-    padding-left: 15px;
-    background-color: #1e1c2e;
-    color: #b6b6b6;
-    margin-bottom: 15px;
-    margin-left: 22px;
-}
-
-.cadastrar button{
-
-    cursor:pointer;
-    width: 120px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgb(134, 243, 134);
-    color: #070707;
-}
-.apagar button{
-    margin-top: 10px;
-    cursor:pointer;
-    width: 120px;
-    height: 40px;
-    border-radius: 20px;
-    border: none;
-    background-color: rgb(134, 243, 134);
-    color: #070707;
-}
-
-input::placeholder{
-    color: #b6b6b6;
-    }
-
-h1{
-    color: #FAFAFA;
-}
-
-.caixa {
-    margin-top: 65px;
-}
-
-.caixa img {
-    width: 115px;
-}
-
-input:focus {
-    outline: none;
-}
+    padding: 0.7rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .user-photo {
+    position: relative;
+  }
+  
+  .image-container img {
+    width: 200px;
+    border-radius: 50%;
+    border: 4px solid #ccc;
+  }
+  
+  .edit-icon {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    font-size: 1.5rem;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 0.2rem;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+  
+  .image-container:hover .edit-icon {
+    opacity: 1;
+    visibility: visible;
+  }
+  
