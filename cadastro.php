@@ -1,40 +1,54 @@
 <?php
-
 include(__DIR__."/assets/php/cnxBD.php");
 
 $tabela = "Cliente";
 
-
-try{
-
-    $novousuario = $_POST["usuario"];
-    $novonome = $_POST["nome"];
-    $novoemail = $_POST["email"]; 
-    $novasenha = $_POST["senha"];
-    $confirmaSenha = $_POST["confirma_senha"];
-    $novotelefone = $_POST["telefone"];
-    $novocpf = $_POST["cpf"];
-    if ($novasenha ==  $confirmaSenha){
-        $novasenha = password_hash($novasenha,PASSWORD_DEFAULT);
-    }
+try {
+    // Sanitização e validação dos campos
     
-    $sql=$conectar->prepare("INSERT INTO ".$tabela." (usuario, nome , email, senha, telefone, cpf) VALUES(:usuario,:nome,:email,:senha,:telefone,:cpf);");
+    $novonome      =  $_POST['nome'];
+    $novoemail     = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $novotelefone  = $_POST['celular'];
+    $novocpf       = $_POST['cpf'];
+    $novasenha     = $_POST['senha'];
+    $confirmaSenha = $_POST['confirma_senha'];
 
-    $sql->bindValue(":usuario",$novousuario);
-    $sql->bindValue(":nome",$novonome);
-    $sql->bindValue(":email",$novoemail);
-    $sql->bindValue(":senha",$novasenha);
-    $sql->bindValue(":telefone",$novotelefone);
-    $sql->bindValue(":cpf",$novocpf);
+    // Validação simples
+    if (!$novotelefone || !$novonome || !$novoemail || !$novasenha || !$confirmaSenha || !$novocpf) {
+        exit("Todos os campos obrigatórios devem ser preenchidos.");
+    }
+
+    if (!filter_var($novoemail, FILTER_VALIDATE_EMAIL)) {
+        exit("E-mail inválido.");
+    }
+
+    if ($novasenha !== $confirmaSenha) {
+        exit("As senhas não coincidem.");
+    }
+
+    // Criptografar a senha com password_hash
+    $hashSenha = password_hash($novasenha, PASSWORD_DEFAULT);
+
+    // Preparar e executar a inserção no banco
+    $sql = $conectar->prepare("
+        INSERT INTO $tabela ( Nome_CLiente, Email_Cliente, Senha_Cliente, Telefone_Cliente, CPF_Cliente)
+        VALUES ( :nome, :email, :senha, :telefone, :cpf)
+    ");
+
+
+    $sql->bindValue(":nome", $novonome);
+    $sql->bindValue(":email", $novoemail);
+    $sql->bindValue(":senha", $hashSenha);
+    $sql->bindValue(":telefone", $novotelefone);
+    $sql->bindValue(":cpf", $novocpf);
 
     $sql->execute();
-    echo "Cadastro com sucesso";
-    sleep(5);
-    header('Location: index.html');
-    die;
 
+    // Redirecionamento seguro
+    header('Location: user-info.php');
+    exit;
 
-}catch(Exception $erro){
-    echo "ATENÇÃO, erro na inclusão: ".$erro->getMessage();
-};
+} catch (Exception $erro) {
+    echo "ATENÇÃO, erro na inclusão: " . $erro->getMessage();
+}
 ?>

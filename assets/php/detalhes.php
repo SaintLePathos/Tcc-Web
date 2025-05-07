@@ -1,5 +1,5 @@
 <?php
-    //if($_POST){
+    if($_POST){
         include(__DIR__."/cnxBD.php");
         try{
             $id_produto = $_POST["produto"];
@@ -34,7 +34,7 @@
             error_log("Erro na consulta: " . $erro->getMessage()); // Salva erro no log
             echo json_encode(["erro" => "Erro na consulta, tente novamente!"]);
         }
-    //}
+    }
 
 
 ?>

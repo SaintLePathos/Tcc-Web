@@ -1,6 +1,6 @@
 
 <?php
-//if($_POST){
+if($_POST){
         include(__DIR__."/cnxBD.php");
     try{
         $flt = $_POST['filtrojs'];
@@ -45,5 +45,5 @@
     catch(Exception $erro){
         echo "ATENÇÃO, erro na consulta: " . $erro->getmessage();;
     }
-//}
+}
 ?>

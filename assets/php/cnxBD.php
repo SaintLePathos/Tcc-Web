@@ -1,7 +1,7 @@
 <?php
 function conectarBD(){
-
-    $local_servidorBD = "DESKTOP-GB2HS4S";
+   $nomehost = gethostname();
+    $local_servidorBD = $nomehost."\SQLEXPRESS";
     $usuario_servidorBD ="sa";
     $senha_servidorBD = "1234";
     $banco_servidorBD = "Loja_Ecommerce";

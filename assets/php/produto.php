@@ -1,6 +1,6 @@
 
 <?php
-//if($_POST){
+if($_POST){
         include(__DIR__."/cnxBD.php");
     try{
 
@@ -94,5 +94,5 @@
         echo json_encode(["erro" => "Erro na consulta, tente novamente!" . $comandoSQL]);
     }
     
-//}
+}
 ?>

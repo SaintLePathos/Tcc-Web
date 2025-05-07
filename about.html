@@ -34,7 +34,7 @@
                         <a href="shop.html" class="nav__link">Produtos</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="about.html" class="nav__link active-link">Sobre Nós</a>
+                        <a href="about.html" class="nav__link active-link">Sobre</a>
                      </li> 
                      <li class="nav__item">
                         <a href="blog.html" class="nav__link">Blog</a>
@@ -170,55 +170,66 @@
 
         <h2 class="login__title-center">Login</h2>
 
-        <form action="" class="login__form grid">
+        <form action="login.php" class="login__form grid" method="post">
           <div class="login__content">
               <label for=""class="login__label">Email</label>
-              <input type="email" class="login__input">
+              <input type="email" class="login__input" name="email">
           </div>
           <div class="login__content">
               <label for=""class="login__label">Password</label>
-              <input type="password" class="login__input">
+              <input type="password" class="login__input" name="senha">
           </div>
           <div>
-              <a href="#" class="button">Sign in</a>
+            <button type="submit" class="button">Sign in</button>
+
           </div>
           <div>
-              <p class="signup">Not a member? <a href="cadastro.html">Sign up now</a></p>
+              <p class="signup">Não tem um conta ? <a href="cadastro.html">Cadastre-se agora</a></p>
+              <p class="signup">Esquceu a senha ? <a href="">Clique aqui</a></p>
+
           </div>
 
         </form>
     </div>
 
+
     <!--=============== MAIN ===============-->
     <main class="main">
         <!--=============== ABOUT ===============-->
         <section class="about section container">
-            <h2 class="breadcrumb__title">Sobre Nós</h2>
-            <h3 class="breadcrumb__subtitle"><a href="index.html" style="color: black;">Home </a> > <span>Sobre Nós</span></h3>
+            <h2 class="breadcrumb__title">Sobre</h2>
+            <h3 class="breadcrumb__subtitle"><a href="index.html" style="color: black;">Home </a> > <span>Sobre</span></h3>
             
             <div class="about__container grid">
                <img src="assets/img/about-img.jpg" alt="" class="about__img"> 
-
+             
+               
+               
+               
+               
+              
                 <div class="about__data">
                     <h2 class="section__title about__title">
-                        Who we really are & <br> why choose us
+                        Quem somos de verdade & por que escolher a  <br>Tardígrado
                     </h2>
                     <p class="about__description">
-                        We have over 4000+ unbiased reviews and our customers trust our products and delivery service every time
+                        Na Tardígrado, nossa missão é unir resistência, estilo e propósito. Seja para o dia a dia ou para aventuras inesperadas, nossos produtos foram feitos para durar — como o animal que inspira nosso nome. <br>
+                        Mais de 4000 avaliações reais e positivas comprovam: nossos clientes confiam nos produtos Tardígrado e na nossa entrega segura e pontual.
                     </p>
                     <div class="about__details">
                     <p class="about__details-description">
                         <i class="bx bxs-check-square about__details-icon"></i>
-                        We always deliver on time
+                        Entregamos sempre no prazo
                     </p>
                     <p class="about__details-description">
                         <i class="bx bxs-check-square about__details-icon"></i>
-                        We give you guides to protect and care for your products
+                        Oferecemos guias para cuidar e preservar seus produtos
                     </p>
                     <p class="about__details-description">
                         <i class="bx bxs-check-square about__details-icon"></i>
-                       100% money back guaranted
+                        Garantia de reembolso total em até 30 dias
                     </p>
+                   
                     </div>
                 </div>
             </div>

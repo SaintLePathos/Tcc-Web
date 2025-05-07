@@ -34,7 +34,7 @@
                         <a href="shop.html" class="nav__link">Produtos</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="about.html" class="nav__link">Sobre Nós</a>
+                        <a href="about.html" class="nav__link">Sobre</a>
                      </li> 
                      <li class="nav__item">
                         <a href="blog.html" class="nav__link">Blog</a>
@@ -170,24 +170,28 @@
 
         <h2 class="login__title-center">Login</h2>
 
-        <form action="" class="login__form grid">
+        <form action="login.php" class="login__form grid" method="post">
           <div class="login__content">
               <label for=""class="login__label">Email</label>
-              <input type="email" class="login__input">
+              <input type="email" class="login__input" name="email">
           </div>
           <div class="login__content">
               <label for=""class="login__label">Password</label>
-              <input type="password" class="login__input">
+              <input type="password" class="login__input" name="senha">
           </div>
           <div>
-              <a href="#" class="button">Sign in</a>
+            <button type="submit" class="button">Sign in</button>
+
           </div>
           <div>
-              <p class="signup">Not a member? <a href="cadastro.html">Sign up now</a></p>
+              <p class="signup">Não tem um conta ? <a href="cadastro.html">Cadastre-se agora</a></p>
+              <p class="signup">Esquceu a senha ? <a href="">Clique aqui</a></p>
+
           </div>
 
         </form>
     </div>
+
 
     <!--=============== MAIN ===============-->
     <main class="main">
@@ -201,12 +205,12 @@
                     <div class="questions__item">
                         <header class="questions__header">
                             <i class="bx bx-plus questions__icon"></i>
-                            <h3 class="questions__item-title">Lorem ispum dolor sit amet.</h3>
+                            <h3 class="questions__item-title">Quais são os prazos de entrega da Tardígrado?</h3>
                         </header>
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ispum dolor sit amet consectetur adipisicing elit. Ad velit distinctio eius perferendis eligendi soluta porro consequatur inventore.
+                                Nossos envios são realizados em até 2 dias úteis, com prazos de entrega variando entre 3 e 10 dias, dependendo da sua localização.
                             </p>
                         </div>
                     </div>
@@ -214,12 +218,12 @@
                     <div class="questions__item">
                         <header class="questions__header">
                             <i class="bx bx-plus questions__icon"></i>
-                            <h3 class="questions__item-title">Lorem ispum dolor sit amet.</h3>
+                            <h3 class="questions__item-title">Os produtos da Tardígrado têm garantia?</h3>
                         </header>
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ispum dolor sit amet consectetur adipisicing elit. Ad velit distinctio eius perferendis eligendi soluta porro consequatur inventore.
+                                Sim! Todos os nossos produtos têm garantia de 90 dias contra defeitos de fabricação.
                             </p>
                         </div>
                     </div>
@@ -227,12 +231,12 @@
                     <div class="questions__item">
                         <header class="questions__header">
                             <i class="bx bx-plus questions__icon"></i>
-                            <h3 class="questions__item-title">Lorem ispum dolor sit amet.</h3>
+                            <h3 class="questions__item-title">Posso trocar um produto caso não sirva ou não goste?</h3>
                         </header>
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ispum dolor sit amet consectetur adipisicing elit. Ad velit distinctio eius perferendis eligendi soluta porro consequatur inventore.
+                                Claro! Você pode solicitar troca ou devolução em até 7 dias após o recebimento.
                             </p>
                         </div>
                     </div>
@@ -243,12 +247,12 @@
                     <div class="questions__item">
                         <header class="questions__header">
                             <i class="bx bx-plus questions__icon"></i>
-                            <h3 class="questions__item-title">Lorem ispum dolor sit amet.</h3>
+                            <h3 class="questions__item-title">A Tardígrado é uma loja segura?</h3>
                         </header>
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ispum dolor sit amet consectetur adipisicing elit. Ad velit distinctio eius perferendis eligendi soluta porro consequatur inventore.
+                                Sim. Nosso site é protegido com criptografia SSL e usamos plataformas de pagamento confiáveis.
                             </p>
                         </div>
                     </div>
@@ -256,12 +260,12 @@
                     <div class="questions__item">
                         <header class="questions__header">
                             <i class="bx bx-plus questions__icon"></i>
-                            <h3 class="questions__item-title">Lorem ispum dolor sit amet.</h3>
+                            <h3 class="questions__item-title">Como posso acompanhar meu pedido?</h3>
                         </header>
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ispum dolor sit amet consectetur adipisicing elit. Ad velit distinctio eius perferendis eligendi soluta porro consequatur inventore.
+                                Assim que o pedido for enviado, você receberá um código de rastreio por e-mail.
                             </p>
                         </div>
                     </div>
@@ -269,12 +273,12 @@
                     <div class="questions__item">
                         <header class="questions__header">
                             <i class="bx bx-plus questions__icon"></i>
-                            <h3 class="questions__item-title">Lorem ispum dolor sit amet.</h3>
+                            <h3 class="questions__item-title">A loja tem loja física?</h3>
                         </header>
 
                         <div class="questions__content">
                             <p class="questions__description">
-                                Lorem ispum dolor sit amet consectetur adipisicing elit. Ad velit distinctio eius perferendis eligendi soluta porro consequatur inventore.
+                                No momento, funcionamos exclusivamente online para atender todo o Brasil com mais eficiência.
                             </p>
                         </div>
                     </div>

@@ -35,7 +35,7 @@
                         <a href="shop.html" class="nav__link">Produtos</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="about.html" class="nav__link">Sobre Nós</a>
+                        <a href="about.html" class="nav__link">Sobre </a>
                      </li> 
                      <li class="nav__item">
                         <a href="blog.html" class="nav__link">Blog</a>
@@ -167,28 +167,32 @@
   
       <!--=============== LOGIN ===============-->
       <div class="login" id="login">
-          <i class="bx bx-x login__close" id="login-close"></i>
+        <i class="bx bx-x login__close" id="login-close"></i>
 
-          <h2 class="login__title-center">Login</h2>
+        <h2 class="login__title-center">Login</h2>
 
-          <form action="login.php" class="login__form grid" method="post">
-            <div class="login__content">
-                <label for=""class="login__label">Email</label>
-                <input type="email" class="login__input">
-            </div>
-            <div class="login__content">
-                <label for=""class="login__label">Password</label>
-                <input type="password" class="login__input">
-            </div>
-            <div>
-                <a href="#" class="button">Sign in</a>
-            </div>
-            <div>
-                <p class="signup">Not a member? <a href="cadastro.html">Sign up now</a></p>
-            </div>
+        <form action="login.php" class="login__form grid" method="post">
+          <div class="login__content">
+              <label for=""class="login__label">Email</label>
+              <input type="email" class="login__input" name="email">
+          </div>
+          <div class="login__content">
+              <label for=""class="login__label">Password</label>
+              <input type="password" class="login__input" name="senha">
+          </div>
+          <div>
+            <button type="submit" class="button">Sign in</button>
 
-          </form>
-      </div>
+          </div>
+          <div>
+              <p class="signup">Não tem um conta ? <a href="cadastro.html">Cadastre-se agora</a></p>
+              <p class="signup">Esquceu a senha ? <a href="">Clique aqui</a></p>
+
+          </div>
+
+        </form>
+    </div>
+
   
       <!--=============== MAIN ===============-->
       <main class="main">
