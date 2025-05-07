@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $novo_usuario = $_POST['usuario'];
     $novo_email = $_POST['email'];
     $novo_telefone = $_POST['telefone'];
+    $novo_cpf = $_POST['cpf'];
 
     try {
         $atualiza = $conectar->prepare("
@@ -25,12 +26,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 Usuario_Cliente = :usuario, 
                 Email_Cliente = :novo_email, 
                 Telefone_Cliente = :telefone 
+                CPF_Cliente = :cpf
             WHERE Email_Cliente = :email_sessao
         ");
         $atualiza->bindValue(':nome', $novo_nome);
         $atualiza->bindValue(':usuario', $novo_usuario);
         $atualiza->bindValue(':novo_email', $novo_email);
         $atualiza->bindValue(':telefone', $novo_telefone);
+        $atualiza->bindValue(':cpf', $novo_cpf);
         $atualiza->bindValue(':email_sessao', $email_sessao);
         $atualiza->execute();
 
@@ -47,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Carrega os dados atuais
 try {
     $sql = $conectar->prepare("
-        SELECT Nome_Cliente, Usuario_Cliente, Email_Cliente, Telefone_Cliente 
+        SELECT Nome_Cliente, Usuario_Cliente, Email_Cliente, Telefone_Cliente,CPF_Cliente 
         FROM Cliente 
         WHERE Email_Cliente = :email
     ");
@@ -75,7 +78,9 @@ try {
   <title>Editar Perfil do Usuário</title>
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="assets/css/style_cadastro.css" />
-
+ <!-- jQuery e jQuery Mask -->
+ <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
   <style>
     #sucesso-overlay {
       position: fixed;
@@ -137,6 +142,10 @@ try {
       <label for="nome">Nome</label>
       <input type="text" id="nome" name="nome" value="<?= htmlspecialchars($usuario['Nome_Cliente']) ?>" required />
 
+    
+      <label for="CPF">CPF</label>
+      <input type="text" id="cpf" name="cpf" value="<?= htmlspecialchars($usuario['CPF_Cliente']) ?>" />
+
       <label for="usuario">Nome de Usuário</label>
       <input type="text" id="usuario" name="usuario" value="<?= htmlspecialchars($usuario['Usuario_Cliente']) ?>" required />
 
@@ -151,17 +160,29 @@ try {
         <button type="reset" class="cancel">Cancelar</button>
       </div>
     </form>
+ <!-- Botão de logout -->
+ <form method="post" action="logout.php">
+        <button type="submit" class="logout-btn">Sair</button>
+    </form>
+
   </main>
 
   <!-- Overlay de Sucesso -->
   <div id="sucesso-overlay">
     <div id="sucesso-box">
-      <h2>✅ Sucesso!</h2>
+      <h2><i class='bx bxs-check-circle'></i> Sucesso!</h2>
       <p>Seus dados foram atualizados com sucesso.</p>
       <button onclick="fecharOverlay()">OK</button>
     </div>
   </div>
 
+  <script>
+    $(document).ready(function(){
+      $('#telefone').mask('(00) 00000-0000');
+  
+       $('#cpf').mask('000.000.000-00');
+    });
+  </script>
   <script>
     function fecharOverlay() {
       window.location.href = window.location.pathname;
