@@ -12,11 +12,11 @@ $email_sessao = $_SESSION['email'];
 
 // Se o formulário foi enviado (POST), atualiza os dados
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $novo_nome = $_POST['nome'];
-    $novo_usuario = $_POST['usuario'];
-    $novo_email = $_POST['email'];
-    $novo_telefone = $_POST['telefone'];
-    $novo_cpf = $_POST['cpf'];
+     $novo_nome =  strip_tags(trim($_POST['nome']));
+     $novo_usuario = strip_tags(trim($_POST['usuario']));
+    $novo_email     = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $novo_telefone  = preg_replace('/[^0-9]/', '', $_POST['telefone']);  
+    $novo_cpf       = preg_replace('/[^0-9]/', '', $_POST['cpf']); 
 
     try {
         $atualiza = $conectar->prepare("
@@ -24,14 +24,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             SET 
                 Nome_Cliente = :nome, 
                 Usuario_Cliente = :usuario, 
-                Email_Cliente = :novo_email, 
-                Telefone_Cliente = :telefone 
+                Email_Cliente = :email, 
+                Telefone_Cliente = :telefone,
                 CPF_Cliente = :cpf
             WHERE Email_Cliente = :email_sessao
         ");
         $atualiza->bindValue(':nome', $novo_nome);
         $atualiza->bindValue(':usuario', $novo_usuario);
-        $atualiza->bindValue(':novo_email', $novo_email);
+        $atualiza->bindValue(':email', $novo_email);
         $atualiza->bindValue(':telefone', $novo_telefone);
         $atualiza->bindValue(':cpf', $novo_cpf);
         $atualiza->bindValue(':email_sessao', $email_sessao);

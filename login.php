@@ -10,9 +10,13 @@ if($_POST){
     try{
         if(!empty($_POST["email"]) && !empty($_POST["senha"]))
         {
-            $novo_email = $_POST["email"];
+            $novo_email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
             $nova_senha = $_POST["senha"];
 
+            if (!filter_var($novo_email, FILTER_VALIDATE_EMAIL)) {
+                exit("E-mail inválido.");
+            }
+        
             // Buscar apenas o hash da senha pelo e-mail
             $sql = $conectar->prepare("SELECT Email_Cliente, Senha_Cliente FROM $tabela WHERE Email_Cliente = :email");
             $sql->bindValue(":email", $novo_email);
