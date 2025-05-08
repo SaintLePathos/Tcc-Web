@@ -56,12 +56,12 @@ CREATE TABLE Produto_Pedido  (
 go
 CREATE TABLE Cliente  (
     Id_Cliente INT PRIMARY KEY IDENTITY,
-    CPF_Cliente VARCHAR(11) NOT NULL UNIQUE,
+    CPF_Cliente VARCHAR(20) NOT NULL UNIQUE,
     Nome_Cliente VARCHAR(50) NOT NULL ,
     Usuario_Cliente VARCHAR(50) UNIQUE,
     Email_Cliente VARCHAR(50) ,
     Senha_Cliente VARCHAR(255),
-    Telefone_Cliente VARCHAR(15),
+    Telefone_Cliente VARCHAR(20),
     Img_Perfil_Cliente VARCHAR(50)
 );
 go
@@ -100,7 +100,9 @@ INSERT INTO Cliente (Nome_Cliente, Email_Cliente, Senha_Cliente, Telefone_Client
 ('Jhon', 'Jhon@gmail.com','12345','11 12345-6789','12345678910','Jhon123')
 INSERT INTO Cliente (Nome_Cliente, Email_Cliente, Senha_Cliente, Telefone_Cliente, CPF_Cliente,Usuario_Cliente) VALUES
 ('Douglas', 'Douglas@gmail.com','123','11 12345-6789','12345678912','Douglas123')
-/*
+
+select * from Cliente
+
 
 	INSERT INTO Fornecedor (CNPJ_Fornecedor, Nome_Fornecedor, Email_Fornecedor, Telefone_Fornecedor) VALUES
 ('12345678901234', 'Fornecedor A', 'contato@fornecedora.com', '11987654321'),
@@ -136,6 +138,7 @@ INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Img_Produto, Descricao_Produto
 go
 SELECT * FROM Produto
 go
+/*
 SELECT * FROM Produto ORDER BY CASE WHEN 1=1 AND Tecido_Produto IN ('Algod�o', 'Jeans') AND Tamanho_Produto IN ('34', '36', '38') AND Cor_Produto IN ('Cinza', 'Azul', 'Branco', 'Preto') THEN 1 ELSE 2 END, Valor_Produto ASC;
 go
 
@@ -145,7 +148,7 @@ AND Tecido_Produto IN ('Algod�o','Jeans')
 AND Tamanho_Produto IN ('34','36','38')
 AND Cor_Produto IN ( 'Cinza','Azul','Branco','Preto');
 go
-/*
+
 SELECT Tamanho_Produto, COUNT(*) AS Quantidade
 FROM Produto
 GROUP BY Tamanho_Produto

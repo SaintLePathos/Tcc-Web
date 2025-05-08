@@ -25,7 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 Nome_Cliente = :nome, 
                 Usuario_Cliente = :usuario, 
                 Email_Cliente = :novo_email, 
-                Telefone_Cliente = :telefone 
+                Telefone_Cliente = :telefone,
                 CPF_Cliente = :cpf
             WHERE Email_Cliente = :email_sessao
         ");
