@@ -56,10 +56,10 @@ CREATE TABLE Produto_Pedido  (
 go
 CREATE TABLE Cliente  (
     Id_Cliente INT PRIMARY KEY IDENTITY,
-    CPF_Cliente VARCHAR(11) NOT NULL UNIQUE,
-    Nome_Cliente VARCHAR(50) NOT NULL ,
-    Usuario_Cliente VARCHAR(50) UNIQUE,
-    Email_Cliente VARCHAR(50) ,
+    CPF_Cliente VARCHAR(14)  UNIQUE,
+    Nome_Cliente VARCHAR(50)  ,
+    Usuario_Cliente VARCHAR(50) ,
+    Email_Cliente VARCHAR(50) UNIQUE ,
     Senha_Cliente VARCHAR(255),
     Telefone_Cliente VARCHAR(15),
     Img_Perfil_Cliente VARCHAR(50)
@@ -95,12 +95,12 @@ ALTER TABLE Produto_Pedido  ADD CONSTRAINT FK_Id_Pedido_Produto_Pedido
 go
 
 INSERT INTO Cliente (Nome_Cliente, Email_Cliente, Senha_Cliente, Telefone_Cliente, CPF_Cliente, Usuario_Cliente) VALUES
-('Joao', 'Joao@gmail.com','1234','11 12345-6789','12345678911','Joao123')
+('Joao', 'Joao@gmail.com','123','11 12345-6789','123456789','Joao12')
 INSERT INTO Cliente (Nome_Cliente, Email_Cliente, Senha_Cliente, Telefone_Cliente, CPF_Cliente,Usuario_Cliente) VALUES
 ('Jhon', 'Jhon@gmail.com','12345','11 12345-6789','12345678910','Jhon123')
 INSERT INTO Cliente (Nome_Cliente, Email_Cliente, Senha_Cliente, Telefone_Cliente, CPF_Cliente,Usuario_Cliente) VALUES
-('Douglas', 'Douglas@gmail.com','123','11 12345-6789','12345678912','Douglas123')
-/*
+('Douglas', 'Dougla11s@gmail.com','123','11 19345-6789','1234678912','Douglas3')
+
 
 	INSERT INTO Fornecedor (CNPJ_Fornecedor, Nome_Fornecedor, Email_Fornecedor, Telefone_Fornecedor) VALUES
 ('12345678901234', 'Fornecedor A', 'contato@fornecedora.com', '11987654321'),
@@ -152,3 +152,5 @@ GROUP BY Tamanho_Produto
 ORDER BY Tamanho_Produto ASC;
 go
 */
+go 
+SELECT * FROM Cliente

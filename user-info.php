@@ -24,7 +24,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             SET 
                 Nome_Cliente = :nome, 
                 Usuario_Cliente = :usuario, 
+<<<<<<< HEAD
                 Email_Cliente = :email, 
+=======
+>>>>>>> 517b4cd7263e5855b0f79f27db68633cd110b982
                 Telefone_Cliente = :telefone,
                 CPF_Cliente = :cpf
             WHERE Email_Cliente = :email_sessao
