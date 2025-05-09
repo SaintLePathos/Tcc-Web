@@ -2,6 +2,7 @@ function enviarID(id) {
     localStorage.setItem("pId", id);
     window.location.href = "details.html";
 }
+let quantidade;
 function carregamento(){
 
     let id = localStorage.getItem("pId");
@@ -14,6 +15,7 @@ function carregamento(){
         },
         dataType: 'json',
         success: function(retorno){
+            quantidade = retorno.quantidade;
             console.log(retorno);
             let estoque = '';
             if(retorno.quantidade == "0"){
@@ -25,7 +27,7 @@ function carregamento(){
             let valordescontado = retorno.valor * descontado;
             let valorfinal = retorno.valor - valordescontado;
             let dscnt = retorno.desconto * 1.00;
-            const divselecionada = document.getElementById("detalhesgrid");;
+            const divselecionada = document.getElementById("detalhesgrid");
             divselecionada.innerHTML = '';
             divselecionada.innerHTML = `
                     <div class="product__images grid">
@@ -65,7 +67,7 @@ function carregamento(){
                     </div>
 
                     <div class="details__description">
-                        <h3 class="description__title">Product Details</h3>
+                        <h3 class="description__title">Disponivel: ${retorno.quantidade}</h3>
                         <div class="description__details">
                             <p>${retorno.descricao}</p>
                         </div>
@@ -73,24 +75,41 @@ function carregamento(){
 
                     <div class="cart__amount">
                         <div class="cart__amount-content">
-                            <span class ="cart__amount-box">
+                            <span class ="cart__amount-box" onclick="diminuir()">
                                 <i class="bx bx-minus"></i>
                             </span>
   
-                            <span class="cart__amount-number">1</span>
+                            <span class="cart__amount-number" id="idContador">0</span>
   
-                            <span class="cart__amount-box">
+                            <span class="cart__amount-box" onclick="aumentar()">
                                 <i class="bx bx-plus"></i>
                             </span>
                         </div>
                         <i class="bx bx-heart cart__amount-heart"></i>
                     </div>
-                    <a href="#" class="button">Adicionar ao Carrinho</a>
+                    <a href="#" class="button" onclick="aumentar()">Adicionar ao Carrinho</a>
                 </div>`;
-
         },
         error: function(cod,textStatus,msg){
             alert("Houve um erro na comunicação com servidor \n"+cod+"\n"+textStatus+"\n"+msg);
         }
     });
+}
+
+let contador = 0;
+function aumentar(){
+    if(contador < quantidade){
+        contador = contador + 1;
+    }
+    const contagem = document.getElementById("idContador");
+    contagem.innerText = contador;
+    console.log(contador);
+}
+function diminuir(){
+    if(contador > 0){
+        contador = contador - 1;
+    }
+    const contagem = document.getElementById("idContador");
+    contagem.innerText = contador;
+    console.log(contador);
 }

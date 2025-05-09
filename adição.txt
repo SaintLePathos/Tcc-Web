@@ -1,0 +1,17 @@
+Coisas a agregar
+
+1-  adicionar um metodo para quando for gerado uma conta gerar um nome de usuario ou deixa nome de usuario null
+e depois o usuario adicionar
+
+2 - adicionar tela de info do usuario 
+
+3 - usuario poder fazer update de informações e poder adicionar imagem 
+
+4 - colocar uma barra de pesquisa no shop usando like
+
+5 - colocar formulario de endereço cliente para adicionar endereço
+
+[sexta-feira 09/05/25 13:44]Jonas: Adicionei a função de contador de intens que da pra
+adicionar no carrinho no entanto ainda n e possivel usar o carrinho feito com uma variavel 
+'contador' junto ao ajax calculando os itens totais para adicionar ao carrinho, apena mexido o
+detalhes.js.
