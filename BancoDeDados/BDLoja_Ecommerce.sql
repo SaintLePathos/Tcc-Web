@@ -154,3 +154,37 @@ go
 */
 go 
 SELECT * FROM Cliente
+
+--Procedure de autentificação
+/*
+
+CREATE PROCEDURE mySp_autenticaUsuario
+
+	--definindo parâmetros de entrada
+	@login varchar(20),
+	@senha varchar(20)
+AS
+	--criando variaveis
+	DECLARE @getLogin varchar(50), @getSenha varchar(255)
+
+	--definindo o valor de cada variavel
+	SET @getLogin = (SELECT Email_Cliente FROM Cliente
+											WHERE Email_Cliente = @login)
+	SET @getSenha = (SELECT Senha_Cliente FROM Cliente 
+											WHERE Senha_Cliente = @senha)
+
+	--condicional para retornarmos o login
+	if(LEN(@getLogin) > 0) AND (LEN(@getSenha) > 0)
+		BEGIN 
+		-- trabalhando com condicionais aninhados
+		IF(@getLogin <> '') AND (@getSenha <>'')
+			BEGIN
+				SELECT ('Usuario pode ser logado pois os dados conferem ...') AS logger
+			END
+		END
+	ELSE
+		BEGIN
+		SELECT ('Usuario não pode ser logado pois os dados não conferem ...') AS logger
+		END
+
+EXEC mySp_autenticaUsuario 'Jhon@gmail.com', '1235' */
