@@ -101,9 +101,9 @@ function CarregaProdutos(){
                 divProduto.onclick = function() {
                     enviarID(retorno[i].id); // Passando uma string como parâmetro
                 };;
-                let descontado = retorno[i].desconto / 100;
-                let valordescontado = retorno[i].valor * descontado;
-                let valorfinal = retorno[i].valor - valordescontado;
+                let desconto = retorno[i].desconto;
+                let valor = retorno[i].valor;
+                let valorfinal = valor/(1-(desconto/100));
                 divProduto.innerHTML = `
                     <div class="shop__tag">${estoque}</div>
                     <img  src="assets/img/${retorno[i].img}" alt="" class="shop__img">
@@ -111,8 +111,8 @@ function CarregaProdutos(){
                     <span class="shop__subtitle">Tamanho ${retorno[i].tamanho}, ${retorno[i].tecido}, ${retorno[i].cor}</span>
 
                     <div class="shop__prices">
-                        <span class="shop__price">${valorfinal.toFixed(2)}</span>
-                        <span class="shop__discounts">${retorno[i].valor}</span>
+                        <span class="shop__price">${retorno[i].valor}</span>
+                        <span class="shop__discounts">${valorfinal.toFixed(2)}</span>
                     </div>
 
                     <a href="#" class="button shop__button">

@@ -23,9 +23,9 @@ function carregamento(){
             }else{
                 estoque = 'Em Estoque';
             }
-            let descontado = retorno.desconto / 100;
-            let valordescontado = retorno.valor * descontado;
-            let valorfinal = retorno.valor - valordescontado;
+            let desconto = retorno.desconto;
+            let valor = retorno.valor;
+            let valorfinal = valor/(1-(desconto/100));
             let dscnt = retorno.desconto * 1.00;
             const divselecionada = document.getElementById("detalhesgrid");
             divselecionada.innerHTML = '';
@@ -61,8 +61,8 @@ function carregamento(){
                     </div>
 
                     <div class="details__prices">
-                        <span class="details__price">${valorfinal.toFixed(2)}</span>
-                        <span class="details__discount">${retorno.valor}</span>
+                        <span class="details__price">${retorno.valor}</span>
+                        <span class="details__discount">${valorfinal.toFixed(2)}</span>
                         <span class="discount__percentage">${dscnt.toFixed(0)}% OFF</span>
                     </div>
 
