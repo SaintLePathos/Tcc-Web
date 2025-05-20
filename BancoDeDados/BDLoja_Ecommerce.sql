@@ -38,7 +38,7 @@ CREATE TABLE Produto  (
     Descricao_Produto VARCHAR(500),
     Valor_Produto DECIMAL(10,2),
     Peso_Produto DECIMAL(10,2),
-    Desconto_Produto DECIMAL(10,2),
+    Desconto_Produto INT,
     Tamanho_Produto VARCHAR(10),
     Quantidade_Produto INT,
     Tecido_Produto VARCHAR(50),
@@ -136,7 +136,7 @@ INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Img_Produto, Descricao_Produto
 go
 SELECT * FROM Produto
 
---SELECT * FROM Produto ORDER BY CASE WHEN 1=1 AND Tecido_Produto IN ('Algod�o', 'Jeans') AND Tamanho_Produto IN ('34', '36', '38') AND Cor_Produto IN ('Cinza', 'Azul', 'Branco', 'Preto') THEN 1 ELSE 2 END, Valor_Produto ASC;
+--SELECT * FROM Produto ORDER BY CASE WHEN 1=1 AND Tecido_Produto IN ('Algodão', 'Jeans') AND Tamanho_Produto IN ('34', '36', '38') AND Cor_Produto IN ('Cinza', 'Azul', 'Branco', 'Preto') THEN 1 ELSE 2 END, Valor_Produto ASC;
 /*
 SELECT * FROM Produto
 WHERE 1=1
