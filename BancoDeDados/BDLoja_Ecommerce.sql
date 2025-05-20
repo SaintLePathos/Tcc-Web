@@ -110,53 +110,52 @@ go
 
 -- Inserindo produtos agora que os fornecedores existem
 INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Img_Produto, Descricao_Produto, Valor_Produto, Peso_Produto, Desconto_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto) VALUES
-(1, 'Camiseta Branca', 'img_teste.jpg', 'Camiseta de algod�o branca', 39.90, 0.3, 10.00, '34', 50, 'Algod�o', 'Branca'),
-(1, 'Camiseta Preta', 'img_teste.jpg', 'Camiseta de algod�o preta', 39.90, 0.3, 10.00, '36', 40, 'Algod�o', 'Preta'),
-(2, 'Cal�a Jeans', 'img_teste.jpg', 'Cal�a jeans azul', 99.90, 1.2, 15.00, '42', 30, 'Jeans', 'Azul'),
-(2, 'Jaqueta Couro', 'img_teste.jpg', 'Jaqueta de couro sint�tico', 199.90, 1.5, 20.00, '38', 25, 'Couro Sint�tico', 'Preto'),
-(3, 'T�nis Esportivo', 'img_teste.jpg', 'T�nis confort�vel para corrida', 149.90, 0.8, 5.00, '42', 60, 'Sint�tico', 'Vermelho'),
-(3, 'Mochila Casual', 'img_teste.jpg', 'Mochila para uso di�rio', 79.90, 0.5, 12.00, '40', 45, 'Poli�ster', 'Preto'),
-(1, 'Bon� Estiloso', 'img_teste.jpg', 'Bon� de algod�o', 49.90, 0.2, 8.00, '42', 35, 'Algod�o', 'Azul'),
-(2, '�culos de Sol', 'img_teste.jpg', '�culos com prote��o UV', 129.90, 0.3, 10.00, '44', 20, 'Pl�stico', 'Preto'),
-(3, 'Rel�gio Elegante', 'img_teste.jpg', 'Rel�gio anal�gico de a�o', 399.90, 0.4, 25.00, '46', 15, 'A�o', 'Prata'),
-(1, 'Carteira de Couro', 'img_teste.jpg', 'Carteira de couro leg�timo', 89.90, 0.3, 12.00, '48', 50, 'Couro', 'Marrom'),
-(2, 'Chap�u Panam�', 'img_teste.jpg', 'Chap�u estiloso para ver�o', 59.90, 0.2, 5.00, '40', 22, 'Palha', 'Bege'),
-(3, 'Meia Confort�vel', 'img_teste.jpg', 'Meia de algod�o', 15.90, 0.1, 3.00, '38', 100, 'Algod�o', 'Cinza'),
-(1, 'Casaco de L�', 'img_teste.jpg', 'Casaco quente para inverno', 229.90, 1.3, 18.00, '42', 30, 'L�', 'Cinza'),
-(2, 'Cal�a Moletom', 'img_teste.jpg', 'Cal�a confort�vel de moletom', 79.90, 1.1, 12.00, '46', 45, 'Moletom', 'Cinza'),
-(3, 'Cinto de Couro', 'img_teste.jpg', 'Cinto elegante de couro', 59.90, 0.3, 10.00, '40', 40, 'Couro', 'Preto'),
-(1, 'Blusa Feminina', 'img_teste.jpg', 'Blusa leve e estilosa', 49.90, 0.4, 8.00, '34', 35, 'Algod�o', 'Rosa'),
-(2, 'Saia Jeans', 'img_teste.jpg', 'Saia curta de jeans', 89.90, 0.7, 15.00, '34', 25, 'Jeans', 'Azul'),
-(2, 'Saia Jeans', 'img_teste.jpg', 'Saia curta de jeans', 89.90, 0.7, 15.00, '36', 25, 'Jeans', 'Branco'),
-(2, 'Saia Jeans', 'img_teste.jpg', 'Saia curta de jeans', 89.90, 0.7, 15.00, '38', 25, 'Jeans', 'Preto'),
-(2, 'Saia Jeans', 'img_teste.jpg', 'Saia curta de jeans', 89.90, 0.7, 15.00, '40', 25, 'Jeans', 'Verde'),
-(3, 'Sand�lia Casual', 'img_teste.jpg', 'Sand�lia confort�vel para passeio', 79.90, 0.5, 10.00, '42', 50, 'Couro Sint�tico', 'Marrom'),
-(1, 'Vestido Floral', 'img_teste.jpg', 'Vestido estampado', 119.90, 0.6, 20.00, '46', 40, 'Poli�ster', 'Vermelho'),
-(2, 'Chinelo de Borracha', 'img_teste.jpg', 'Chinelo simples', 29.90, 0.3, 5.00, '48', 80, 'Borracha', 'Preto');
+(1, 'Camiseta Branca', 'product-1.png', 'Camiseta de algodão branca', 39.90, 0.3, 10.00, '34', 50, 'Algodão', 'Branca'),
+(1, 'Camiseta Preta', 'product-1.png', 'Camiseta de algodão preta', 39.90, 0.3, 10.00, '36', 40, 'Algodão', 'Preta'),
+(2, 'Calça Jeans', 'product-1.png', 'Calça jeans azul', 99.90, 1.2, 15.00, '42', 30, 'Jeans', 'Azul'),
+(2, 'Jaqueta Couro', 'product-1.png', 'Jaqueta de couro sintético', 199.90, 1.5, 20.00, '38', 25, 'Couro Sintético', 'Preto'),
+(3, 'Tênis Esportivo', 'product-1.png', 'Tênis confortável para corrida', 149.90, 0.8, 5.00, '42', 60, 'Sintético', 'Vermelho'),
+(3, 'Mochila Casual', 'product-1.png', 'Mochila para uso diário', 79.90, 0.5, 12.00, '40', 45, 'Poliéster', 'Preto'),
+(1, 'Boné Estiloso', 'product-1.png', 'Boné de algodão', 49.90, 0.2, 8.00, '42', 35, 'Algodão', 'Azul'),
+(2, 'Óculos de Sol', 'product-1.png', 'Óculos com proteção UV', 129.90, 0.3, 10.00, '44', 20, 'Plástico', 'Preto'),
+(3, 'Relógio Elegante', 'product-1.png', 'Relógio analógico de aço', 399.90, 0.4, 25.00, '46', 15, 'Aço', 'Prata'),
+(1, 'Carteira de Couro', 'product-1.png', 'Carteira de couro legítimo', 89.90, 0.3, 12.00, '48', 50, 'Couro', 'Marrom'),
+(2, 'Chapéu Panamá', 'product-1.png', 'Chapéu estiloso para verão', 59.90, 0.2, 5.00, '40', 22, 'Palha', 'Bege'),
+(3, 'Meia Confortável', 'product-1.png', 'Meia de algodão', 15.90, 0.1, 3.00, '38', 100, 'Algodão', 'Cinza'),
+(1, 'Casaco de Lã', 'product-1.png', 'Casaco quente para inverno', 229.90, 1.3, 18.00, '42', 30, 'Lã', 'Cinza'),
+(2, 'Calça Moletom', 'product-1.png', 'Calça confortável de moletom', 79.90, 1.1, 12.00, '46', 45, 'Moletom', 'Cinza'),
+(3, 'Cinto de Couro', 'product-1.png', 'Cinto elegante de couro', 59.90, 0.3, 10.00, '40', 40, 'Couro', 'Preto'),
+(1, 'Blusa Feminina', 'product-1.png', 'Blusa leve e estilosa', 49.90, 0.4, 8.00, '34', 35, 'Algodão', 'Rosa'),
+(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90, 0.7, 15.00, '34', 25, 'Jeans', 'Azul'),
+(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90, 0.7, 15.00, '36', 25, 'Jeans', 'Branco'),
+(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90, 0.7, 15.00, '38', 25, 'Jeans', 'Preto'),
+(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90, 0.7, 15.00, '40', 25, 'Jeans', 'Verde'),
+(3, 'Sandália Casual', 'product-1.png', 'Sandália confortável para passeio', 79.90, 0.5, 10.00, '42', 50, 'Couro Sintético', 'Marrom'),
+(1, 'Vestido Floral', 'product-1.png', 'Vestido estampado', 119.90, 0.6, 20.00, '46', 40, 'Poliéster', 'Vermelho'),
+(2, 'Chinelo de Borracha', 'product-1.png', 'Chinelo simples', 29.90, 0.3, 5.00, '48', 80, 'Borracha', 'Preto');
 go
 SELECT * FROM Produto
-go
-SELECT * FROM Produto ORDER BY CASE WHEN 1=1 AND Tecido_Produto IN ('Algod�o', 'Jeans') AND Tamanho_Produto IN ('34', '36', '38') AND Cor_Produto IN ('Cinza', 'Azul', 'Branco', 'Preto') THEN 1 ELSE 2 END, Valor_Produto ASC;
-go
 
+--SELECT * FROM Produto ORDER BY CASE WHEN 1=1 AND Tecido_Produto IN ('Algod�o', 'Jeans') AND Tamanho_Produto IN ('34', '36', '38') AND Cor_Produto IN ('Cinza', 'Azul', 'Branco', 'Preto') THEN 1 ELSE 2 END, Valor_Produto ASC;
+/*
 SELECT * FROM Produto
 WHERE 1=1
 AND Tecido_Produto IN ('Algod�o','Jeans')
 AND Tamanho_Produto IN ('34','36','38')
 AND Cor_Produto IN ( 'Cinza','Azul','Branco','Preto');
 go
-/*
+
 SELECT Tamanho_Produto, COUNT(*) AS Quantidade
 FROM Produto
 GROUP BY Tamanho_Produto
 ORDER BY Tamanho_Produto ASC;
 go
-*/
+
 go 
 SELECT * FROM Cliente
 
 --Procedure de autentificação
-/*
+
 
 CREATE PROCEDURE mySp_autenticaUsuario
 
