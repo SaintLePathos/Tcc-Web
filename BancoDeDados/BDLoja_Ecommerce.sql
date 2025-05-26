@@ -62,7 +62,7 @@ CREATE TABLE Cliente  (
     Email_Cliente VARCHAR(50) UNIQUE ,
     Senha_Cliente VARCHAR(255),
     Telefone_Cliente VARCHAR(15),
-    Img_Perfil_Cliente VARCHAR(50)
+    Img_Perfil_Cliente VARCHAR(255)
 );
 go
 CREATE TABLE Fornecedor  (

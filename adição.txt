@@ -15,3 +15,11 @@ e depois o usuario adicionar
 adicionar no carrinho no entanto ainda n e possivel usar o carrinho feito com uma variavel 
 'contador' junto ao ajax calculando os itens totais para adicionar ao carrinho, apena mexido o
 detalhes.js.
+
+[quinta-feira 22/05/25 11:14]SaintLePathos: Adicionei uma função em outros.js que quando clicarmos no h2 cadastro h2
+ele chamará o método gerarLogin que ira gerar informações de um usuario
+
+segunda-feira 26/05/2025 SaintLePathos:  Adicionei upload de imagem e um gerador de nome para cada imagem enviada, ajustei o atualiza dados para não mudar caso exista outro email.
+na tela user-info coloque mais dois botões um para mudar a senha e outro para voltar para home-page 
+
+
