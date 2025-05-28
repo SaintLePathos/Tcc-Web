@@ -75,7 +75,6 @@ if($_POST){
                     "img" => $conteudo["Img_Produto"],
                     "descricao" => $conteudo["Descricao_Produto"],
                     "valor" => number_format($conteudo["Valor_Produto"], 2, '.', ''),
-                    "peso" => number_format($conteudo["Peso_Produto"], 2, '.', ''),
                     "desconto" => $conteudo["Desconto_Produto"],
                     "tamanho" => $conteudo["Tamanho_Produto"],
                     "quantidade" => $conteudo["Quantidade_Produto"],
