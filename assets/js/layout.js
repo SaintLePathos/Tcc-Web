@@ -1,8 +1,13 @@
 
 
+
+
 window.addEventListener("load", function() {
+
     criabarra(); // Função do primeiro arquivo
+
 });
+
 function criabarra(){
     const divbarra = document.getElementById('header');
     divbarra.innerHTML=``;
@@ -15,22 +20,22 @@ function criabarra(){
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list">
                     <li class="nav__item">
-                       <a href="index.html" class="nav__link ">Home</a>
+                       <a href="index.html" class="nav__link" id="index.html">Home</a>
                     </li> 
                     <li class="nav__item">
-                        <a href="shop.html" class="nav__link">Produtos</a>
+                        <a href="shop.html" class="nav__link" id="shop.html">Produtos</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="about.html" class="nav__link">Sobre</a>
+                        <a href="about.html" class="nav__link" id="about.html">Sobre</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="blog.html" class="nav__link active-link">Blog</a>
+                        <a href="blog.html" class="nav__link" id="blog.html">Blog</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="faq.html" class="nav__link">Faq's</a>
+                        <a href="faq.html" class="nav__link" id="faq.html">Faq's</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="contact.html" class="nav__link">Contato</a>
+                        <a href="contact.html" class="nav__link" id="contact.html">Contato</a>
                      </li> 
                 </ul>
                 <div class="nav__close" id="nav-close">
@@ -53,12 +58,19 @@ function criabarra(){
         </nav>
     `;
 
+    const currentPage = window.location.pathname.split("/").pop();
+    const idsect = document.getElementById(currentPage+"");
+    idsect.className = "nav__link active-link";
+
     const btnicuser = document.getElementById('login-button');
     btnicuser.addEventListener("click",function(){
         const areaus = document.getElementById('login')
         areaus.className = "login show-login";
+
         verificalogin();
     })
+
+
     const btnicmenu = document.getElementById('nav-toggle');
     btnicmenu.addEventListener("click",function(){
         const areamenu = document.getElementById('nav-menu')
@@ -136,6 +148,11 @@ function verificalogin(){
                     </form>
                 `;
             }
+                const btnicloginclose = document.getElementById('login-close');
+                btnicloginclose.addEventListener("click",function(){
+                    const areaus = document.getElementById('login')
+                    areaus.className = "login";
+                })
         },
         error: function(cod,textStatus,msg){
             alert("Houve um erro na comunicação com servidor \n"+cod+"\n"+textStatus+"\n"+msg);
