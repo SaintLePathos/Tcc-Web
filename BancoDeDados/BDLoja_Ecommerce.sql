@@ -32,12 +32,10 @@ go
 CREATE TABLE Produto  (
     Id_Produto INT PRIMARY KEY IDENTITY,
     Id_Fornecedor INT,
-
     Nome_Produto VARCHAR(50),
     Img_Produto VARCHAR(50),
     Descricao_Produto VARCHAR(500),
     Valor_Produto DECIMAL(10,2),
-    Peso_Produto DECIMAL(10,2),
     Desconto_Produto INT,
     Tamanho_Produto VARCHAR(10),
     Quantidade_Produto INT,
@@ -109,30 +107,30 @@ INSERT INTO Cliente (Nome_Cliente, Email_Cliente, Senha_Cliente, Telefone_Client
 go
 
 -- Inserindo produtos agora que os fornecedores existem
-INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Img_Produto, Descricao_Produto, Valor_Produto, Peso_Produto, Desconto_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto) VALUES
-(1, 'Camiseta Branca', 'product-1.png', 'Camiseta de algodão branca', 39.90, 0.3, 10.00, '34', 50, 'Algodão', 'Branca'),
-(1, 'Camiseta Preta', 'product-1.png', 'Camiseta de algodão preta', 39.90, 0.3, 10.00, '36', 40, 'Algodão', 'Preta'),
-(2, 'Calça Jeans', 'product-1.png', 'Calça jeans azul', 99.90, 1.2, 15.00, '42', 30, 'Jeans', 'Azul'),
-(2, 'Jaqueta Couro', 'product-1.png', 'Jaqueta de couro sintético', 199.90, 1.5, 20.00, '38', 25, 'Couro Sintético', 'Preto'),
-(3, 'Tênis Esportivo', 'product-1.png', 'Tênis confortável para corrida', 149.90, 0.8, 5.00, '42', 60, 'Sintético', 'Vermelho'),
-(3, 'Mochila Casual', 'product-1.png', 'Mochila para uso diário', 79.90, 0.5, 12.00, '40', 45, 'Poliéster', 'Preto'),
-(1, 'Boné Estiloso', 'product-1.png', 'Boné de algodão', 49.90, 0.2, 8.00, '42', 35, 'Algodão', 'Azul'),
-(2, 'Óculos de Sol', 'product-1.png', 'Óculos com proteção UV', 129.90, 0.3, 10.00, '44', 20, 'Plástico', 'Preto'),
-(3, 'Relógio Elegante', 'product-1.png', 'Relógio analógico de aço', 399.90, 0.4, 25.00, '46', 15, 'Aço', 'Prata'),
-(1, 'Carteira de Couro', 'product-1.png', 'Carteira de couro legítimo', 89.90, 0.3, 12.00, '48', 50, 'Couro', 'Marrom'),
-(2, 'Chapéu Panamá', 'product-1.png', 'Chapéu estiloso para verão', 59.90, 0.2, 5.00, '40', 22, 'Palha', 'Bege'),
-(3, 'Meia Confortável', 'product-1.png', 'Meia de algodão', 15.90, 0.1, 3.00, '38', 100, 'Algodão', 'Cinza'),
-(1, 'Casaco de Lã', 'product-1.png', 'Casaco quente para inverno', 229.90, 1.3, 18.00, '42', 30, 'Lã', 'Cinza'),
-(2, 'Calça Moletom', 'product-1.png', 'Calça confortável de moletom', 79.90, 1.1, 12.00, '46', 45, 'Moletom', 'Cinza'),
-(3, 'Cinto de Couro', 'product-1.png', 'Cinto elegante de couro', 59.90, 0.3, 10.00, '40', 40, 'Couro', 'Preto'),
-(1, 'Blusa Feminina', 'product-1.png', 'Blusa leve e estilosa', 49.90, 0.4, 8.00, '34', 35, 'Algodão', 'Rosa'),
-(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90, 0.7, 15.00, '34', 25, 'Jeans', 'Azul'),
-(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90, 0.7, 15.00, '36', 25, 'Jeans', 'Branco'),
-(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90, 0.7, 15.00, '38', 25, 'Jeans', 'Preto'),
-(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90, 0.7, 15.00, '40', 25, 'Jeans', 'Verde'),
-(3, 'Sandália Casual', 'product-1.png', 'Sandália confortável para passeio', 79.90, 0.5, 10.00, '42', 50, 'Couro Sintético', 'Marrom'),
-(1, 'Vestido Floral', 'product-1.png', 'Vestido estampado', 119.90, 0.6, 20.00, '46', 40, 'Poliéster', 'Vermelho'),
-(2, 'Chinelo de Borracha', 'product-1.png', 'Chinelo simples', 29.90, 0.3, 5.00, '48', 80, 'Borracha', 'Preto');
+INSERT INTO Produto (Id_Fornecedor, Nome_Produto, Img_Produto, Descricao_Produto, Valor_Produto,  Desconto_Produto, Tamanho_Produto, Quantidade_Produto, Tecido_Produto, Cor_Produto) VALUES
+(1, 'Camiseta Branca', 'product-1.png', 'Camiseta de algodão branca', 39.90, 10.00, '34', 50, 'Algodão', 'Branca'),
+(1, 'Camiseta Preta', 'product-1.png', 'Camiseta de algodão preta', 39.90,  10.00, '36', 40, 'Algodão', 'Preta'),
+(2, 'Calça Jeans', 'product-1.png', 'Calça jeans azul', 99.90,  15.00, '42', 30, 'Jeans', 'Azul'),
+(2, 'Jaqueta Couro', 'product-1.png', 'Jaqueta de couro sintético', 199.90, 20.00, '38', 25, 'Couro Sintético', 'Preto'),
+(3, 'Tênis Esportivo', 'product-1.png', 'Tênis confortável para corrida', 149.90,  5.00, '42', 60, 'Sintético', 'Vermelho'),
+(3, 'Mochila Casual', 'product-1.png', 'Mochila para uso diário', 79.90,  12.00, '40', 45, 'Poliéster', 'Preto'),
+(1, 'Boné Estiloso', 'product-1.png', 'Boné de algodão', 49.90, 8.00, '42', 35, 'Algodão', 'Azul'),
+(2, 'Óculos de Sol', 'product-1.png', 'Óculos com proteção UV', 129.90, 10.00, '44', 20, 'Plástico', 'Preto'),
+(3, 'Relógio Elegante', 'product-1.png', 'Relógio analógico de aço', 399.90, 25.00, '46', 15, 'Aço', 'Prata'),
+(1, 'Carteira de Couro', 'product-1.png', 'Carteira de couro legítimo', 89.90, 12.00, '48', 50, 'Couro', 'Marrom'),
+(2, 'Chapéu Panamá', 'product-1.png', 'Chapéu estiloso para verão', 59.90, 5.00, '40', 22, 'Palha', 'Bege'),
+(3, 'Meia Confortável', 'product-1.png', 'Meia de algodão', 15.90, 3.00, '38', 100, 'Algodão', 'Cinza'),
+(1, 'Casaco de Lã', 'product-1.png', 'Casaco quente para inverno', 229.90, 18.00, '42', 30, 'Lã', 'Cinza'),
+(2, 'Calça Moletom', 'product-1.png', 'Calça confortável de moletom', 79.90,  12.00, '46', 45, 'Moletom', 'Cinza'),
+(3, 'Cinto de Couro', 'product-1.png', 'Cinto elegante de couro', 59.90,  10.00, '40', 40, 'Couro', 'Preto'),
+(1, 'Blusa Feminina', 'product-1.png', 'Blusa leve e estilosa', 49.90, 8.00, '34', 35, 'Algodão', 'Rosa'),
+(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90,  15.00, '34', 25, 'Jeans', 'Azul'),
+(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90,  15.00, '36', 25, 'Jeans', 'Branco'),
+(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90,  15.00, '38', 25, 'Jeans', 'Preto'),
+(2, 'Saia Jeans', 'product-1.png', 'Saia curta de jeans', 89.90,  15.00, '40', 25, 'Jeans', 'Verde'),
+(3, 'Sandália Casual', 'product-1.png', 'Sandália confortável para passeio', 79.90, 10.00, '42', 50, 'Couro Sintético', 'Marrom'),
+(1, 'Vestido Floral', 'product-1.png', 'Vestido estampado', 119.90,  20.00, '46', 40, 'Poliéster', 'Vermelho'),
+(2, 'Chinelo de Borracha', 'product-1.png', 'Chinelo simples', 29.90, 5.00, '48', 80, 'Borracha', 'Preto');
 go
 SELECT * FROM Produto
 

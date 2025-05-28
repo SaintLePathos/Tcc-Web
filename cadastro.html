@@ -52,16 +52,20 @@
                             <input type="email" class="contact__input" placeholder="Digite seu email" name="email" id="email">
                         </div>    
                     </div>
-                    <div class="contact__inputs grid">
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Senha</label>
-                        <input type="password"   class="contact__input" placeholder="Digite uma senha de no minimo 8 caracteres" name="senha" id="senha">
-                    </div>
-                    <div class="contact__content">
-                        <label for="" class="contact__label">Confirma Senha</label>
-                        <input type="password"  class="contact__input" placeholder="Confirme a senha" name="confirma_senha" id="confirma_senha">
-                    </div>
-                    </div>
+                         <div class="contact__inputs grid">
+                 <div class="contact__content password-container">
+    <label for="senha" class="contact__label">Senha</label>
+    <input type="password" class="contact__input" placeholder="Digite uma senha de no mínimo 8 caracteres" name="senha" id="senha">
+    <i class='bx bx-hide toggle-password' toggle="#senha"></i>
+</div>
+
+<div class="contact__content password-container">
+    <label for="confirma_senha" class="contact__label">Confirma Senha</label>
+    <input type="password" class="contact__input" placeholder="Confirme a senha" name="confirma_senha" id="confirma_senha">
+    <i class='bx bx-hide toggle-password' toggle="#confirma_senha"></i>
+</div>
+</div>
+
                     <div class="contact__inputs grid">
                         <div class="contact__content">
                             <label for="" class="contact__label">CPF</label>

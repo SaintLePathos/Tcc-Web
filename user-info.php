@@ -63,7 +63,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $novo_telefone = isset($_POST['telefone']) ? preg_replace('/[^0-9]/', '', $_POST['telefone']) : null;
         $novo_cpf      = isset($_POST['cpf']) ? preg_replace('/[^0-9]/', '', $_POST['cpf']) : null;
 
-        if ($novo_nome && $novo_usuario && $novo_email) {
+        if ($novo_nome && $novo_usuario && $novo_email)
+         {
              // Validação de e-mail
         if (!filter_var($novo_email, FILTER_VALIDATE_EMAIL)) {
             echo "E-mail inválido. Por favor, insira um e-mail no formato correto.";
@@ -199,7 +200,7 @@ try {
   </form>
 </div>
 <div class="extra-actions">
-  <a href="trocar-senha.php" class="btn-link">
+  <a href="assets/php/alterarSenha.php" class="btn-link">
     <i class='bx bx-lock'></i> Alterar Senha
   </a>
   <a href="index.html" class="btn-link">
@@ -212,7 +213,7 @@ try {
     <div class="user-photo">
       <div class="image-container">
   <?php
-$img_src = !empty($usuario['Img_Perfil_Cliente']) ? htmlspecialchars($usuario['Img_Perfil_Cliente']) : 'https://www.w3schools.com/w3images/avatar2.png';
+$img_src = !empty($usuario['Img_Perfil_Cliente']) ? htmlspecialchars($usuario['Img_Perfil_Cliente']) : 'assets/img/perfilpadrao.png';
 
   ?>
   <img src="<?= $img_src ?>" alt="Ícone de Usuário" id="userImage" />

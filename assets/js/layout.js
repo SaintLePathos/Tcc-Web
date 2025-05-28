@@ -81,14 +81,37 @@ function verificalogin(){
         },
         dataType: 'json',
         success: function(retorno){
-            let resposta = retorno+"";
-            if(resposta == "true"){
-                alert("logado");
+           
+            if(retorno.status == true){
+                const { nome, email, img } = retorno.dados;
                 const divlogin = document.getElementById("login");
-                divlogin.innerHTML=``;
-                divlogin.innerHTML=``;//Aqui voçe coloca o codigo html que vai apareçer caso tenha um login <---------------------------------
+             
+           divlogin.innerHTML = `
+            <i class="bx bx-x login__close" id="login-close"></i>
+            <h2 class="login__title-center">Perfil</h2>
+            <div class="login__form grid">
+               
+                    <div class="perfil__img-container">
+    <img src="${img}" alt="Foto de Perfil" class="perfil__img">
+</div>
+             
+                <div class="login__content">
+                    <label class="login__label">Nome:</label>
+                    <p>${nome}</p>
+                </div>
+                <div class="login__content">
+                    <label class="login__label">Email:</label>
+                    <p>${email}</p>
+                </div>
+                <div>
+                    <a href="user-info.php" class="button">Ver mais</a>
+                </div>
+            </div>
+        `;
+        //Aqui voçe coloca o codigo html que vai apareçer caso tenha um login <---------------------------------
+                    
             }else{
-                alert("semlogin");
+                
                 const divlogin = document.getElementById("login");
                 divlogin.innerHTML=``;
                 divlogin.innerHTML=`
@@ -108,7 +131,7 @@ function verificalogin(){
                     </div>
                     <div>
                         <p class="signup">Não tem um conta ? <a href="cadastro.html">Cadastre-se agora</a></p>
-                        <p class="signup">Esquceu a senha ? <a href="">Clique aqui</a></p>
+                        <p class="signup">Esquceu a senha ? <a href="recuperarsenha.php">Clique aqui</a></p>
                     </div>
                     </form>
                 `;

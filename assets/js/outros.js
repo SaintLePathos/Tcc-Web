@@ -37,3 +37,11 @@ $('#cpf').val(cpf).trigger('input'); // força máscara
 
 
 
+$(document).ready(function() {
+    $('.toggle-password').on('click', function() {
+        const input = $($(this).attr('toggle'));
+        const type = input.attr('type') === 'password' ? 'text' : 'password';
+        input.attr('type', type);
+        $(this).toggleClass('bx-hide bx-show');
+    });
+});

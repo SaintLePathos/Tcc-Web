@@ -190,3 +190,49 @@ input:disabled {
 .extra-actions .btn-link:hover {
   background-color: #1d1d1d;
 }
+
+
+@media (max-width: 1024px) {
+  .user-edit {
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    gap: 2rem;
+  }
+
+  .user-form {
+    max-width: 90%;
+  }
+
+  .image-container {
+    height: auto;
+    padding-bottom: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .logout-container {
+    position: static;
+    text-align: right;
+    margin: 1rem;
+  }
+
+  .extra-actions {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0 1rem;
+  }
+
+  .extra-actions .btn-link {
+    width: 100%;
+    text-align: center;
+  }
+
+  .form-actions {
+    flex-direction: column;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}
