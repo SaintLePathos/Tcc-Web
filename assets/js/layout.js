@@ -57,8 +57,12 @@ function criabarra(){
     `;
 
     const currentPage = window.location.pathname.split("/").pop();
-    const idsect = document.getElementById(currentPage+"");
-    idsect.className = "nav__link active-link";
+    console.log(currentPage);
+    if(currentPage != "details.html"){
+        const idsect = document.getElementById(currentPage+"");
+        idsect.className = "nav__link active-link";
+    }
+
 
     const btnicuser = document.getElementById('login-button');
     btnicuser.addEventListener("click",function(){
