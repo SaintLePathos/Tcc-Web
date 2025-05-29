@@ -28,9 +28,7 @@ function criabarra(){
                      <li class="nav__item">
                         <a href="about.html" class="nav__link" id="about.html">Sobre</a>
                      </li> 
-                     <li class="nav__item">
-                        <a href="blog.html" class="nav__link" id="blog.html">Blog</a>
-                     </li> 
+                   
                      <li class="nav__item">
                         <a href="faq.html" class="nav__link" id="faq.html">Faq's</a>
                      </li> 

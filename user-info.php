@@ -83,9 +83,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     exit;
                 }
 
-                $atualiza = $conectar->prepare("UPDATE Cliente SET Nome_Cliente = :nome, Usuario_Cliente = :usuario, Email_Cliente = :email, Telefone_Cliente = :telefone, CPF_Cliente = :cpf WHERE Email_Cliente = :email_sessao");
+                $atualiza = $conectar->prepare("UPDATE Cliente SET Nome_Cliente = :nome, Email_Cliente = :email, Telefone_Cliente = :telefone, CPF_Cliente = :cpf WHERE Email_Cliente = :email_sessao");
                 $atualiza->bindValue(':nome', $novo_nome);
-                $atualiza->bindValue(':usuario', $novo_usuario);
                 $atualiza->bindValue(':email', $novo_email);
                 $atualiza->bindValue(':telefone', $novo_telefone);
                 $atualiza->bindValue(':cpf', $novo_cpf);
@@ -110,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 // Carrega os dados atuais
 try {
    $sql = $conectar->prepare("
-    SELECT Nome_Cliente, Usuario_Cliente, Email_Cliente, Telefone_Cliente, CPF_Cliente, Img_Perfil_Cliente
+    SELECT Nome_Cliente,  Email_Cliente, Telefone_Cliente, CPF_Cliente, Img_Perfil_Cliente
     FROM Cliente 
     WHERE Email_Cliente = :email
 ");
@@ -251,13 +250,7 @@ $img_src = !empty($usuario['Img_Perfil_Cliente']) ? htmlspecialchars($usuario['I
         </div>
       </div>
 
-       <div class="input-group">
-      <label for="usuario">Nome de Usuário</label>
-       <div class="input-wrapper">
-      <input type="text" id="usuario" name="usuario" value="<?= htmlspecialchars($usuario['Usuario_Cliente']) ?>"  />
-       <i class='bx bx-pencil edit-pencil' data-target="usuario"></i>
-        </div>
-      </div>
+     
 
       <div class="input-group">
       <label for="email">E-mail</label>
