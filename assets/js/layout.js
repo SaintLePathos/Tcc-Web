@@ -128,7 +128,7 @@ function verificalogin(){
                 
                 const divlogin = document.getElementById("login");
                 divlogin.innerHTML=``;
-                divlogin.innerHTML=`
+                divlogin.innerHTML= `
                     <i class="bx bx-x login__close" id="login-close"></i>
                     <h2 class="login__title-center">Login</h2>
                     <form action="login.php" class="login__form grid" method="post">
@@ -145,7 +145,7 @@ function verificalogin(){
                     </div>
                     <div>
                         <p class="signup">Não tem um conta ? <a href="cadastro.html">Cadastre-se agora</a></p>
-                        <p class="signup">Esquceu a senha ? <a href="recuperarsenha.php">Clique aqui</a></p>
+                       <p class="signup">Esquceu a senha ? <a href="assets/php/recuperarsenha.php">Clique aqui</a></p>
                     </div>
                     </form>
                 `;

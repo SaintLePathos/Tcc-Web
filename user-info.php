@@ -58,12 +58,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     // Verifica se os campos estão presentes antes de continuar
         $novo_nome     = isset($_POST['nome']) ? strip_tags(trim($_POST['nome'])) : null;
-        $novo_usuario  = isset($_POST['usuario']) ? strip_tags(trim($_POST['usuario'])) : null;
         $novo_email    = isset($_POST['email']) ? filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL) : null;
         $novo_telefone = isset($_POST['telefone']) ? preg_replace('/[^0-9]/', '', $_POST['telefone']) : null;
         $novo_cpf      = isset($_POST['cpf']) ? preg_replace('/[^0-9]/', '', $_POST['cpf']) : null;
 
-        if ($novo_nome && $novo_usuario && $novo_email)
+        if ($novo_nome && $novo_email)
          {
              // Validação de e-mail
         if (!filter_var($novo_email, FILTER_VALIDATE_EMAIL)) {
@@ -80,6 +79,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 if ($verificaEmail->fetchColumn() > 0) {
                     echo "Este e-mail já está em uso por outro usuário.";
+                    exit;
+                }
+                if(strlen($novo_telefone) < 11){
+                    echo "Digite um número com 11 digitos";
                     exit;
                 }
 

@@ -7,22 +7,22 @@ if (!isset($_SESSION['email'])) {
 
 include("cnxBD.php"); // Conexão PDO com SQL Server
 
-$mensagem = '';
+$erroSenhaAtual = '';
+$erroNovaSenha = '';
+$erroConfirmarSenha = '';
+$sucesso = '';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $email = $_SESSION['email'];
-
-    // Sanitização básica
     $senha_atual = trim($_POST['senha_atual'] ?? '');
     $nova_senha = trim($_POST['nova_senha'] ?? '');
     $confirmar_senha = trim($_POST['confirmar_senha'] ?? '');
 
-    // Validação básica de comprimento
     if (strlen($nova_senha) < 8) {
-        $mensagem = "A nova senha deve ter no mínimo 8 caracteres.";
+        $erroNovaSenha = "A nova senha deve ter no mínimo 8 caracteres.";
     } elseif ($nova_senha !== $confirmar_senha) {
-        $mensagem = "As novas senhas não conferem.";
+        $erroConfirmarSenha = "As novas senhas não conferem.";
     } else {
         $sql = $conectar->prepare("SELECT Senha_Cliente FROM Cliente WHERE Email_Cliente = :email");
         $sql->bindValue(":email", $email);
@@ -30,29 +30,27 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $resultado = $sql->fetch(PDO::FETCH_ASSOC);
 
         if (!$resultado) {
-            $mensagem = "Usuário não encontrado.";
+            $erroSenhaAtual = "Usuário não encontrado.";
         } else {
             $senha_hash = $resultado['Senha_Cliente'];
-
             if (!password_verify($senha_atual, $senha_hash)) {
-                $mensagem = "Senha atual incorreta.";
+                $erroSenhaAtual = "Senha atual incorreta.";
             } else {
-                // Hash e update
                 $nova_senha_hash = password_hash($nova_senha, PASSWORD_DEFAULT);
-
                 $sqlUpdate = $conectar->prepare("UPDATE Cliente SET Senha_Cliente = :nova_senha WHERE Email_Cliente = :email");
                 $sqlUpdate->bindValue(":nova_senha", $nova_senha_hash);
                 $sqlUpdate->bindValue(":email", $email);
 
                 if ($sqlUpdate->execute()) {
-                    $mensagem = "Senha alterada com sucesso!";
+                    $sucesso = "Senha alterada com sucesso!";
                 } else {
-                    $mensagem = "Erro ao alterar senha.";
+                    $erroConfirmarSenha = "Erro ao alterar senha.";
                 }
             }
         }
     }
 }
+
 ?>
 
 
@@ -187,6 +185,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .esqueci-senha a:hover {
       text-decoration: underline;
     }
+          .erro {
+  color: red;
+  font-size: 13px;
+  margin-top: 4px;
+  margin-left: 4px;
+}
+
+.sucesso {
+  color: green;
+  text-align: center;
+  font-size: 14px;
+  margin-top: 20px;
+}
 
     @media (max-width: 600px) {
       .container {
@@ -196,6 +207,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       .form-actions {
         flex-direction: column;
       }
+
+
     }
   </style>
 </head>
@@ -213,38 +226,52 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <h2>Alterar Senha</h2>
 
   <form action="alterarSenha.php" method="POST">
-    <div class="input-group">
-      <label for="senha_atual">Senha Atual</label>
-      <div class="input-wrapper">
-        <input type="password" id="senha_atual" name="senha_atual" required>
-        <i class='bx bx-hide toggle-password' onclick="togglePassword(this, 'senha_atual')"></i>
-      </div>
+  <div class="input-group">
+    <label for="senha_atual">Senha Atual</label>
+    <div class="input-wrapper">
+      <input type="password" id="senha_atual" name="senha_atual" required>
+      <i class='bx bx-hide toggle-password' onclick="togglePassword(this, 'senha_atual')"></i>
     </div>
+    <?php if (!empty($erroSenhaAtual)): ?>
+      <div class="erro"><?= htmlspecialchars($erroSenhaAtual) ?></div>
+    <?php endif; ?>
+  </div>
 
-    <div class="input-group">
-      <label for="nova_senha">Nova Senha</label>
-      <div class="input-wrapper">
-        <input type="password" id="nova_senha" name="nova_senha" required>
-        <i class='bx bx-hide toggle-password' onclick="togglePassword(this, 'nova_senha')"></i>
-      </div>
+  <div class="input-group">
+    <label for="nova_senha">Nova Senha</label>
+    <div class="input-wrapper">
+      <input type="password" id="nova_senha" name="nova_senha" required>
+      <i class='bx bx-hide toggle-password' onclick="togglePassword(this, 'nova_senha')"></i>
     </div>
+    <?php if (!empty($erroNovaSenha)): ?>
+      <div class="erro"><?= htmlspecialchars($erroNovaSenha) ?></div>
+    <?php endif; ?>
+  </div>
 
-    <div class="input-group">
-      <label for="confirmar_senha">Confirmar Nova Senha</label>
-      <div class="input-wrapper">
-        <input type="password" id="confirmar_senha" name="confirmar_senha" required>
-        <i class='bx bx-hide toggle-password' onclick="togglePassword(this, 'confirmar_senha')"></i>
-      </div>
+  <div class="input-group">
+    <label for="confirmar_senha">Confirmar Nova Senha</label>
+    <div class="input-wrapper">
+      <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+      <i class='bx bx-hide toggle-password' onclick="togglePassword(this, 'confirmar_senha')"></i>
     </div>
+    <?php if (!empty($erroConfirmarSenha)): ?>
+      <div class="erro"><?= htmlspecialchars($erroConfirmarSenha) ?></div>
+    <?php endif; ?>
+  </div>
 
-    <div class="form-actions">
-      <button type="submit" class="save">Salvar</button>
-      <button type="reset" class="cancel">Cancelar</button>
-    </div>
-  </form>
+  <div class="form-actions">
+    <button type="submit" class="save">Salvar</button>
+    <button type="reset" class="cancel">Cancelar</button>
+  </div>
+</form>
+
+<?php if (!empty($sucesso)): ?>
+  <div class="sucesso"><?= htmlspecialchars($sucesso) ?></div>
+<?php endif; ?>
+
 
   <div class="esqueci-senha">
-    <a href="recuperar_senha.php">Esqueci minha senha</a>
+    <a href="recuperarsenha.php">Esqueci minha senha</a>
   </div>
 </div>
 
