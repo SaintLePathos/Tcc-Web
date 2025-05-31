@@ -57,8 +57,7 @@ function criabarra(){
     `;
 
     const currentPage = window.location.pathname.split("/").pop();
-    console.log(currentPage);
-    if(currentPage != "details.html"){
+    if(currentPage == "index.html" || currentPage == "shop.html" || currentPage == "about.html" || currentPage == "faq.html" || currentPage == "contact.html" || currentPage == null){
         const idsect = document.getElementById(currentPage+"");
         idsect.className = "nav__link active-link";
     }
