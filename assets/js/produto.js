@@ -106,12 +106,12 @@ function CarregaProdutos(){
                 let valorfinal = valor/(1-(desconto/100));
                 divProduto.innerHTML = `
                     <div class="shop__tag">${estoque}</div>
-                    <img  src="assets/img/${retorno[i].img}" alt="" class="shop__img">
+                    <img  src="${retorno[i].img}" alt="" class="shop__img">
                     <h3  class="shop__title">${retorno[i].nome}</h3>
                     <span class="shop__subtitle">Tamanho ${retorno[i].tamanho}, ${retorno[i].tecido}, ${retorno[i].cor}</span>
 
                     <div class="shop__prices">
-                        <span class="shop__price">${retorno[i].valor}</span>
+                        <span class="shop__price">R$${retorno[i].valor}</span>
                         <span class="shop__discounts">${valorfinal.toFixed(2)}</span>
                     </div>
 

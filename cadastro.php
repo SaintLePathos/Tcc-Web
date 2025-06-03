@@ -69,7 +69,7 @@ try {
 
    $_SESSION['email'] = $novoemail;
 
-    header('Location: user-info.php');
+    header('Location: index.html');
     exit;
 
 } catch (Exception $erro) {

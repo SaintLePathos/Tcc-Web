@@ -33,17 +33,17 @@ function carregamento(){
                     <div class="product__images grid">
                     <div class="product__img">
                         <div class="details__img-tag">${estoque}</div>
-                        <img src="assets/img/${retorno.img}" alt="">
+                        <img src="${retorno.img}" alt="">
                     </div>
                     
                     <div class="product__img">
-                        <img src="assets/img/${retorno.img}" alt="">
+                        <img src="${retorno.img}" alt="">
                     </div>
                     <div class="product__img">
-                        <img src="assets/img/${retorno.img}" alt="">
+                        <img src="${retorno.img}" alt="">
                     </div>
                     <div class="product__img">
-                        <img src="assets/img/${retorno.img}" alt="">
+                        <img src="${retorno.img}" alt="">
                     </div>
                 </div>
                 <div class="product__info">
@@ -51,17 +51,13 @@ function carregamento(){
                     <h3 class="details__title">${retorno.nome}</h3>
                     <div class="rating">
                         <div class="stars">
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bx-star"></i>
+
                         </div>
-                        <span class="reviews__count">40 + Reviews</span>
+                        <span class="reviews__count"></span>
                     </div>
 
                     <div class="details__prices">
-                        <span class="details__price">${retorno.valor}</span>
+                        <span class="details__price">R$${retorno.valor}</span>
                         <span class="details__discount">${valorfinal.toFixed(2)}</span>
                         <span class="discount__percentage">${dscnt.toFixed(0)}% OFF</span>
                     </div>
