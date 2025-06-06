@@ -1,13 +1,13 @@
 
 <?php
-if($_POST){
+//if($_POST){
         include(__DIR__."/cnxBD.php");
     try{
 
 
 
         $ordem = $_POST["ordemjs"];
-        $filtroTamanho = isset($_POST["fltTamanhojs"]) ? (array) $_POST["fltTamanhojs"] : ["vazio"];
+        $filtroTamanho =  isset($_POST["fltTamanhojs"]) ? (array) $_POST["fltTamanhojs"] : ["vazio"];
         $filtroCor = isset($_POST["fltCorjs"]) ? (array) $_POST["fltCorjs"] : ["vazio"];
         $filtroTecido = isset($_POST["fltTecidojs"]) ? (array) $_POST["fltTecidojs"] : ["vazio"];
 
@@ -42,7 +42,7 @@ if($_POST){
                 $ord ="Nome_Produto DESC";
                 break;
             default:
-                $ord = "";
+                $ord = "Id_Produto DESC";
         }
         
         $comandoSQL = "SELECT * FROM Produto ";
@@ -68,11 +68,19 @@ if($_POST){
         $resul = $sql->fetchAll(PDO::FETCH_ASSOC);
         if (count($resul) >0){
             foreach($resul as $indice => $conteudo){
-
+                $novosql = $conectar->prepare("SELECT * FROM Imagem_Produto WHERE Id_Produto = " . $conteudo["Id_Produto"] ." AND Ordem_ImgProduto = 0 ORDER BY Ordem_ImgProduto ASC;");
+                $novosql->execute();
+                $resultado = $novosql->fetchAll(PDO::FETCH_ASSOC);
+                $imagemurl = "";
+                if(count($resultado)>0){
+                    foreach($resultado as $i => $cont){
+                        $imagemurl =  $cont["Url_ImgProduto"];
+                    }
+                }
                 $retorno[$indice] = [
                     "id" => $conteudo["Id_Produto"],
                     "nome" => $conteudo["Nome_Produto"],
-                    "img" => $conteudo["Img_Produto"],
+                    "img" => $imagemurl,
                     "descricao" => $conteudo["Descricao_Produto"],
                     "valor" => number_format($conteudo["Valor_Produto"], 2, '.', ''),
                     "desconto" => $conteudo["Desconto_Produto"],
@@ -93,5 +101,5 @@ if($_POST){
         echo json_encode(["erro" => "Erro na consulta, tente novamente!" . $comandoSQL]);
     }
     
-}
+//}
 ?>
