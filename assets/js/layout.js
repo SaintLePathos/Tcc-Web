@@ -4,13 +4,12 @@
 
 window.addEventListener("load", function() {
 
-    criabarra(); // Função do primeiro arquivo
+      criabarra(); // Função do primeiro arquivo, Função comum a todas as páginas
 
 });
 
 function criabarra(){
     const divbarra = document.getElementById('header');
-    divbarra.innerHTML=``;
     divbarra.innerHTML=`
             <nav class="nav container">
             <a href="index.html" class="nav__logo">
@@ -46,7 +45,9 @@ function criabarra(){
                    <img src="assets/img/search-icon.png" alt="" class="user__tar">
                 </div>
                 <div class="nav__shop" id="cart-shop">
+                     <a href="assets/php/pedidos.php">
                     <img src="assets/img/produto.png" alt="" class="bolsa__tar">
+                   </a>
                 </div>
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="bx bx-grid-alt"></i>
@@ -161,3 +162,7 @@ function verificalogin(){
         }
     });
 }
+
+
+
+

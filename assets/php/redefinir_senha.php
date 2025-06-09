@@ -15,13 +15,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else if (strlen($novaSenha) < 8) {
         $msg = "A senha deve ter pelo menos 8 caracteres.";
     } else {
-        $sql = $conectar->prepare("SELECT Email_Cliente, TokenExpiraEm FROM Cliente WHERE TokenRecuperacao = :token");
+        $sql = $conectar->prepare("SELECT Email_Cliente, TokenTempo FROM Cliente WHERE TokenRecuperacao = :token");
         $sql->bindValue(':token', $token);
         $sql->execute();
         $user = $sql->fetch(PDO::FETCH_ASSOC);
 
         if ($user) {
-            $expira = new DateTime($user['TokenExpiraEm']);
+            $expira = new DateTime($user['TokenTempo']);
             $agora = new DateTime();
 
             if ($agora > $expira) {
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             } else {
                 $senhaHash = password_hash($novaSenha, PASSWORD_DEFAULT);
 
-                $update = $conectar->prepare("UPDATE Cliente SET Senha_Cliente = :senha, TokenRecuperacao = NULL, TokenExpiraEm = NULL WHERE Email_Cliente = :email");
+                $update = $conectar->prepare("UPDATE Cliente SET Senha_Cliente = :senha, TokenRecuperacao = NULL, TokenTempo = NULL WHERE Email_Cliente = :email");
                 $update->bindValue(':senha', $senhaHash);
                 $update->bindValue(':email', $user['Email_Cliente']);
                 $update->execute();

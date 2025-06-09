@@ -40,7 +40,7 @@ if ($_POST) {
         
 
         
-        $update = $conectar->prepare("UPDATE Cliente SET TokenRecuperacao = :token, TokenExpiraEm = :expira WHERE Email_Cliente = :email");
+        $update = $conectar->prepare("UPDATE Cliente SET TokenRecuperacao = :token, TokenTempo = :expira WHERE Email_Cliente = :email");
 
         $update->bindValue(":token", $token);
         $update->bindValue(":expira", $expira);

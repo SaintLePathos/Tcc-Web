@@ -104,22 +104,25 @@ function CarregaProdutos(){
                 let desconto = retorno[i].desconto;
                 let valor = retorno[i].valor;
                 let valorfinal = valor/(1-(desconto/100));
-                divProduto.innerHTML = `
-                    <div class="shop__tag">${estoque}</div>
-                    <img  src="${retorno[i].img}" alt="" class="shop__img">
-                    <h3  class="shop__title">${retorno[i].nome}</h3>
-                    <span class="shop__subtitle">Tamanho ${retorno[i].tamanho}, ${retorno[i].tecido}, ${retorno[i].cor}</span>
+                let preco = parseFloat(retorno[i].valor).toFixed(2).replace('.', ',');
+                let precoOriginal = valorfinal.toFixed(2).replace('.', ',');
+             
+    divProduto.innerHTML = `
+    <div class="shop__tag">${estoque}</div>
+    <img src="${retorno[i].img}" alt="${retorno[i].nome}" class="shop__img">
+    <h3 class="shop__title">${retorno[i].nome}</h3>
+    <span class="shop__subtitle">Tamanho ${retorno[i].tamanho}, ${retorno[i].tecido}, ${retorno[i].cor}</span>
 
-                    <div class="shop__prices">
-                        <span class="shop__price">R$${retorno[i].valor}</span>
-                        <span class="shop__discounts">${valorfinal.toFixed(2)}</span>
-                    </div>
+    <div class="shop__prices">
+        <span class="shop__price">R$${preco}</span>
+        <span class="shop__discounts">R$${precoOriginal}</span>
+    </div>
 
-                    <a href="#" class="button shop__button">
-                        <i class="bx bx-cart-alt shop__icon"></i>
-                    </a>
-                `;
-                shopItemsContainer.appendChild(divProduto);
+        <a href="#" class="button shop__button">
+                                <i class="bx bx-cart-alt shop__icon"></i>
+                            </a>
+    `;
+                shopItemsContainer.append(divProduto);
                 
             }
             if(!paginaexecucao){
@@ -133,11 +136,14 @@ function CarregaProdutos(){
         
     });
 }
+
+
 function ClickPagina(numpag){
     numpagina = numpag;
     CarregaProdutos();
     MarcaPagina();
 }
+
 function MarcaPagina(){
     let spnlistpag = document.querySelectorAll('span[name="spnpag_name"]');
     spnlistpag.forEach(spn => {
@@ -147,6 +153,7 @@ function MarcaPagina(){
     let spnpag = document.getElementById("spn"+numpagina+"_id");
     spnpag.classList.add("current");
 }
+
 function CarregaPaginas(){
     let divPaginas = document.getElementById('divPaginaProduto');
     divPaginas.innerHTML = "";
@@ -162,6 +169,7 @@ function CarregaPaginas(){
     <i class="bx bx-chevron-right pagination__icon" onclick="avanca()"></i>`;
     MarcaPagina()
 }
+
 function retrocede(){
     
     if(numpagina>1){
@@ -170,6 +178,7 @@ function retrocede(){
         MarcaPagina()
     }
 }
+
 function avanca(){
     if(numpagina < nummax){
         numpagina++;

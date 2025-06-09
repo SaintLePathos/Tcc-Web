@@ -43,9 +43,6 @@
                         <a href="about.html" class="nav__link">Sobre</a>
                      </li> 
                      <li class="nav__item">
-                        <a href="blog.html" class="nav__link">Blog</a>
-                     </li> 
-                     <li class="nav__item">
                         <a href="faq.html" class="nav__link">Faq's</a>
                      </li> 
                      <li class="nav__item">
@@ -62,7 +59,9 @@
                    <img src="assets/img/search-icon.png" alt="" class="user__tar">
                 </div>
                 <div class="nav__shop" id="cart-shop">
+                       <a href="assets/php/pedidos.php">
                     <img src="assets/img/produto.png" alt="" class="bolsa__tar">
+                   </a>
                 </div>
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="bx bx-grid-alt"></i>
@@ -111,175 +110,22 @@
             <h3 class="breadcrumb__subtitle"><a href="index.html" style="color: black;">Home </a> > <a href="shop.html" style="color: black;">Produtos</a> ><span>Detalhes</span></h3>
             <!--Inicio-->
             <div class="details__container grid" id="detalhesgrid">    
-                <div class="product__images grid">
-                    <div class="product__img">
-                        <div class="details__img-tag">New</div>
-                        <img src="assets/img/details-1.png" alt="">
-                    </div>
-                    
-                    <div class="product__img">
-                        <img src="assets/img/details-1.png" alt="">
-                    </div>
-                    <div class="product__img">
-                        <img src="assets/img/details-1.png" alt="">
-                    </div>
-                    <div class="product__img">
-                        <img src="assets/img/details-1.png" alt="">
-                    </div>
-                </div>
-                <div class="product__info">
-                    <p class="details__subtitle">Women > Jacket's</p>
-                    <h3 class="details__title">Windbreaker , Denim =Jack</h3>
-                    <div class="rating">
-                        <div class="stars">
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bxs-star"></i>
-                            <i class="bx bx-star"></i>
-                        </div>
-                        <span class="reviews__count">40 + Reviews</span>
-                    </div>
-
-                    <div class="details__prices">
-                        <span class="details__price">R$20,00</span>
-                        <span class="details__discount">R$14,99</span>
-                        <span class="discount__percentage">50% OFF</span>
-                    </div>
-
-                    <div class="details__description">
-                        <h3 class="description__title">Product Details</h3>
-                        <div class="description__details">
-                            <p>light Gray solid Top, has a bot neck, 3/4 sleeves</p>
-                        </div>
-                    </div>
-
-                    <div class="cart__amount">
-                        <div class="cart__amount-content">
-                            <span class ="cart__amount-box">
-                                <i class="bx bx-minus"></i>
-                            </span>
-  
-                            <span class="cart__amount-number">1</span>
-  
-                            <span class="cart__amount-box">
-                                <i class="bx bx-plus"></i>
-                            </span>
-                        </div>
-                        <i class="bx bx-heart cart__amount-heart"></i>
-                    </div>
-                    <a href="#" class="button">Add To Cart</a>
-                </div>
+               
             </div><!--Final-->
         </section>
 
         <!--=============== RELATED PRODUCTS ===============-->
-        <section class="related__products section">
-            <h2 class="section__title">Related Products</h2>
-            <div class="new__container container">
-              <div class="swiper new-swiper">
-                  <div class="swiper-wrapper">
-                      <!-- NEW CONTENT 1-->
-                      <div class="new__content swiper-slide">
-                          <div class="new__tag">New</div>
-                          <img src="assets/img/new-1.png" alt="" class="new__img">
-                          <h3 class="new__title">Windbreaker Jacket</h3>
-                          <span class="new__subtitle">Acessory</span>
+     <!-- <section class="related__products section">
+  <h2 class="section__title">Produtos Relacionados</h2>
+  <div class="new__container container">
+    <div class="swiper new-swiper">
+      <div class="swiper-wrapper">
+       
+      </div>
+    </div>
+  </div>
+</section>-->
 
-                          <div class="new__prices">
-                              <span class="new__price">R$100,00</span>
-                              <span class="new__discount">R$122,00</span>
-                          </div>
-                          
-                          <a href="#" class="button new_button">
-                              <i class="bx bx-cart-alt new__icon"></i>
-                          </a>
-                      </div>
-                       <!-- NEW CONTENT 2-->
-                       <div class="new__content swiper-slide">
-                          <div class="new__tag" >New</div>
-                          <img src="assets/img/new-2.png" alt="" class="new__img">
-                          <h3 class="new__title">Air Jordan Zipper</h3>
-                          <span class="new__subtitle">Acessory</span>
-
-                          <div class="new__prices">
-                              <span class="new__price">R$1100,00</span>
-                              <span class="new__discount">R$112,00</span>
-                          </div>
-                          
-                          <a href="#" class="button new_button">
-                              <i class="bx bx-cart-alt new__icon"></i>
-                          </a>
-                      </div>
-                        <!-- NEW CONTENT 3-->
-                        <div class="new__content swiper-slide">
-                          <div class="new__tag">New</div>
-                          <img src="assets/img/new-3.png" alt="" class="new__img">
-                          <h3 class="new__title">Fur Jacket</h3>
-                          <span class="new__subtitle">Acessory</span>
-
-                          <div class="new__prices">
-                              <span class="new__price">R$10,00</span>
-                              <span class="new__discount">R$12,00</span>
-                          </div>
-                          
-                          <a href="#" class="button new_button">
-                              <i class="bx bx-cart-alt new__icon"></i>
-                          </a>
-                      </div>
-                           <!-- NEW CONTENT 4-->
-                           <div class="new__content swiper-slide">
-                              <div class="new__tag">New</div>
-                              <img src="assets/img/new-4.png" alt="" class="new__img">
-                              <h3 class="new__title">Fleece Jacket</h3>
-                              <span class="new__subtitle">Acessory</span>
-  
-                              <div class="new__prices">
-                                  <span class="new__price">R$108,00</span>
-                                  <span class="new__discount">R$128,00</span>
-                              </div>
-                              
-                              <a href="#" class="button new_button">
-                                  <i class="bx bx-cart-alt new__icon"></i>
-                              </a>
-                          </div>
-                           <!-- NEW CONTENT 5-->
-                           <div class="new__content swiper-slide">
-                              <div class="new__tag">New</div>
-                              <img src="assets/img/new-5.png" alt="" class="new__img">
-                              <h3 class="new__title">Nike Hoodie</h3>
-                              <span class="new__subtitle">Acessory</span>
-  
-                              <div class="new__prices">
-                                  <span class="new__price">R$8,00</span>
-                                  <span class="new__discount">R$28,00</span>
-                              </div>
-                              
-                              <a href="#" class="button new_button">
-                                  <i class="bx bx-cart-alt new__icon"></i>
-                              </a>
-                          </div>
-                             <!-- NEW CONTENT 6-->
-                             <div class="new__content swiper-slide">
-                              <div class="new__tag">New</div>
-                              <img src="assets/img/new-6.png" alt="" class="new__img">
-                              <h3 class="new__title">Nike jacket </h3>
-                              <span class="new__subtitle">Acessory</span>
-  
-                              <div class="new__prices">
-                                  <span class="new__price">R$8,00</span>
-                                  <span class="new__discount">R$28,00</span>
-                              </div>
-                              
-                              <a href="#" class="button new_button">
-                                  <i class="bx bx-cart-alt new__icon"></i>
-                              </a>
-                          </div>
-
-                  </div>
-              </div>
-            </div>
-        </section>
     </main>
 
     <!--=============== FOOTER ===============-->
@@ -327,82 +173,28 @@
     </footer>
 
     <!--=============== LIGHTBOX ===============-->
-    <div class="lightbox">
-        <div class="lightbox__content">
-            <div class="lightbox__close">&times;</div>
-            <img src="assets/img/details-1.png" alt="" class="lightbox__img">
-            <div class="lightbox__caption">
-            <div class="caption__text">Tardigrado</div>
-            <div class="caption__counter"></div>
-            </div>
-        </div>
-
-        <div class="lightbox__controls">
-            <div class="prev__item" onclick="prevItem()"><i class="bx bx-chevron-left"></i></div>
-            <div class="next__item" onclick="nextItem()"><i class="bx bx-chevron-right"></i></div>
-        </div>
+<div class="lightbox">
+  <div class="lightbox__content">
+    <div class="lightbox__close">&times;</div>
+    <img src="" alt="" class="lightbox__img">
+    <div class="lightbox__caption">
+      <div class="caption__text">Imagem do Produto</div>
+      <div class="caption__counter"></div>
     </div>
-    <!--=============== SCROLL UP ===============-->
+  </div>
+
+  <div class="lightbox__controls">
+    <div class="prev__item" onclick="prevItem()"><i class="bx bx-chevron-left"></i></div>
+    <div class="next__item" onclick="nextItem()"><i class="bx bx-chevron-right"></i></div>
+  </div>
+</div>
+
+
+
+   <!--=============== SCROLL UP ===============-->
     <a href="#" class="scrollup" id="scroll-up">
         <i class="bx bx-up-arrow-alt scrollup__icon"></i>
     </a>
-    <!--=============== LIGHTBOX ===============-->
-    <script>
-        const productItems = document.querySelectorAll(".product__img"),
-        totalProductItems = productItems.length,
-        lightbox = document.querySelector(".lightbox"),
-        lightboxImg = lightbox.querySelector(".lightbox__img"),
-        lightboxClose = lightbox.querySelector(".lightbox__close"),
-        lightboxCounter = lightbox.querySelector(".caption__counter");
-
-        let itemIndex = 0;
-        for(let i=0; i<totalProductItems; i++) {
-            productItems[i].addEventListener("click",function(){
-                itemIndex=i;
-            changeItem();
-            toggleLightbox();
-                    })
-        }
-
-        function nextItem() {
-            if(itemIndex == totalProductItems-1){
-                itemIndex=0;
-            }
-            else {
-                itemIndex++
-            }
-            changeItem();
-        }
-
-        function prevItem() {
-            if(itemIndex === 0){
-                itemIndex = totalProductItems-1;
-            }
-            else {
-                itemIndex--
-            }
-            changeItem();
-        }
-
-        function toggleLightbox() {
-            lightbox.classList.toggle("open");
-        }
-
-        function changeItem() {
-            imgSrc = productItems[itemIndex].querySelector(".product__img img").getAttribute("src");
-            lightboxImg.src = imgSrc;
-            lightboxCounter.innerHTML = (itemIndex + 1 ) + "of" + totalProductItems;
-        }
-
-        //close lightbox
-        lightbox.addEventListener("click",function(){
-            if(event.target === lightboxClose || event.target === lightbox) {
-                toggleLightbox()
-            }
-        })
-
-        
-    </script>
     <!--=============== SWIPER JS ===============-->
     <script src="assets/js/swiper-bundle.min.js"></script>
 

@@ -18,7 +18,8 @@
 
     <script type="text/javascript" src="assets/js/jquery-3.7.1.js"></script>
     <script type="text/javascript" src="assets/js/layout.js"></script>
- 
+    <script type="text/javascript" src="assets/js/novosProdutos.js"></script>
+    <script type="text/javascript" src="assets/js/detalhes.js"></script>
     <title>Página inicial</title>
 </head>
 <body>
@@ -55,12 +56,14 @@
             </div>
 
             <div class="nav__btns">
-                <div class="login__toggle" id="login-button">
-                   <img src="assets/img/search-icon.png" alt="" class="user__tar">
-                </div>
-                <div class="nav__shop" id="cart-shop">
+              <div class="login__toggle" id="login-button">
+            <img src="assets/img/search-icon.png" alt="" class="user__tar">
+        </div>
+        <div class="nav__shop" id="cart-shop">
+               <a href="assets/php/pedidos.php">
                     <img src="assets/img/produto.png" alt="" class="bolsa__tar">
-                </div>
+                   </a>
+        </div>
                 <div class="nav__toggle" id="nav-toggle">
                     <i class="bx bx-grid-alt"></i>
                 </div>
@@ -200,7 +203,7 @@
           <!--=============== NEW ARRIVALS ===============-->
           
           <section class="new section">
-              <h2 class="section__title">New Arrivals</h2>
+              <h2 class="section__title">Lançamentos</h2>
               <div class="new__container container">
                 <div class="swiper new-swiper">
                     <div class="swiper-wrapper">
@@ -347,8 +350,8 @@
                     Quer receber promoções e novidades? Inscreva-se na nossa newsletter!
                 </p>
                 
-                <form action="newsletter.php" class="newsletter__form" method="post">
-                    <input type="text" placeholder="Insira seu E-mail" class="newsletter__input">
+                <form action="assets/php/newsletter.php" class="newsletter__form" method="post">
+                    <input type="text" placeholder="Insira seu E-mail" class="newsletter__input" name="email">
                     <button class="button">Inscrever</button>
                 </form>
               </div>

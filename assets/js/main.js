@@ -21,28 +21,7 @@ if(navClose) {
         navMenu.classList.remove('show-menu')
     })
 }
-/*=============== SHOW CART ===============*/
 
-const cart = document.getElementById('cart'),
-      cartShop = document.getElementById('cart-shop'),
-      cartClose = document.getElementById('cart-close')
-
-
-/*===== CART SHOW =====*/
-/* Validate if constant exists */
-if(cartShop) {
-    cartShop.addEventListener("click",()=> {
-        cart.classList.add('show-cart')
-    })
-}
-
-/*===== CART HIDDEN =====*/
-/* Validate if constant exists */
-if(cartClose) {
-    cartClose.addEventListener("click",()=> {
-        cart.classList.remove('show-cart')
-    })
-}
 
 
 /*=============== SHOW LOGIN ===============*/
@@ -136,4 +115,3 @@ const toggleItem = (item) => {
     item.classList.add('accordion-open')
     }
 }
-/*=============== STYLE SWITCHER ===============*/
