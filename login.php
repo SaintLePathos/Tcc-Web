@@ -27,8 +27,8 @@ if($_POST){
             if($resultado && password_verify($nova_senha, $resultado['Senha_Cliente'])){
                 $_SESSION['email'] = $novo_email;
                 echo "Usuário encontrado";
-                sleep(2);
-                header('location: user-info.php');
+               
+                header('refresh:1;url=index.html');
                 exit;
             } else {
                 echo "Usuário não encontrado ou senha incorreta";

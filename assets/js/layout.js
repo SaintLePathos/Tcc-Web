@@ -120,6 +120,9 @@ function verificalogin(){
                 <div>
                     <a href="user-info.php" class="button">Ver mais</a>
                 </div>
+                  <div>
+                    <a href="logout.php" class="button">Sair</a>
+                </div>
             </div>
         `;
         //Aqui voçe coloca o codigo html que vai apareçer caso tenha um login <---------------------------------
