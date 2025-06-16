@@ -1,53 +1,43 @@
 <?php
+session_start();
 
-if($_POST){
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    include(__DIR__ . "/assets/php/cnxBD.php");
 
-    session_start();
-    include(__DIR__."/assets/php/cnxBD.php");
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $senha = $_POST["senha"] ?? '';
 
-    $tabela = "Cliente";
+    if (!$email || !$senha || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['login_erro'] = "Preencha os campos corretamente.";
+        header("Location: index.html");
+        exit;
+    }
 
-    try{
-        if(!empty($_POST["email"]) && !empty($_POST["senha"]))
-        {
-            $novo_email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
-            $nova_senha = $_POST["senha"];
+    try {
+        $sql = $conectar->prepare("EXEC mySp_getSenhaPorLogin :email");
+        $sql->bindValue(":email", $email);
+        $sql->execute();
 
-            if (!filter_var($novo_email, FILTER_VALIDATE_EMAIL)) {
-                exit("E-mail inválido.");
-            }
-        
-            // Buscar apenas o hash da senha pelo e-mail
-            $sql = $conectar->prepare("SELECT Email_Cliente, Senha_Cliente FROM $tabela WHERE Email_Cliente = :email");
-            $sql->bindValue(":email", $novo_email);
-            $sql->execute();
+        $resultado = $sql->fetch(PDO::FETCH_ASSOC);
 
-            $resultado = $sql->fetch(PDO::FETCH_ASSOC);
-
-            if($resultado && password_verify($nova_senha, $resultado['Senha_Cliente'])){
-                $_SESSION['email'] = $novo_email;
-                echo "Usuário encontrado";
-               
-                header('refresh:1;url=index.html');
-                exit;
-            } else {
-                echo "Usuário não encontrado ou senha incorreta";
-                header('refresh:2;url=index.html');
-                exit;
-            }
+        if ($resultado && password_verify($senha, $resultado['Senha_Cliente'])) {
+            $_SESSION['email'] = $email;
+            header('Location: index.html');
+            exit;
         } else {
-            echo "Preencha todos os campos";
-            header('refresh:2;url=index.html');
+            $_SESSION['login_erro'] = "Usuário não encontrado ou senha incorreta.";
+            header('Location: index.html');
             exit;
         }
 
-    } catch(Exception $erro){
-        echo "ATENÇÃO, erro na consulta: ".$erro->getMessage();
+    } catch (Exception $e) {
+        $_SESSION['login_erro'] = "Erro no servidor: " . $e->getMessage();
+        header('Location: index.html');
+        exit;
     }
 
 } else {
-    header("location: index.html");
+    header("Location: index.html");
     exit;
 }
-
 ?>
